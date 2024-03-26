@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://ctu1nqedjmnpy"]
+[gd_scene load_steps=5 format=3 uid="uid://ctu1nqedjmnpy"]
+
+[ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_l3jtn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bd7py"]
+sky_horizon_color = Color(0.529412, 0.678431, 0.780392, 1)
+ground_bottom_color = Color(0.0901961, 0.27451, 0.384314, 1)
+ground_horizon_color = Color(0.529412, 0.678431, 0.780392, 1)
+
+[sub_resource type="Sky" id="Sky_abqd5"]
+sky_material = SubResource("ProceduralSkyMaterial_bd7py")
+
+[sub_resource type="Environment" id="Environment_giphd"]
+background_mode = 2
+sky = SubResource("Sky_abqd5")
 
 [node name="Main" type="Node"]
+
+[node name="character_controller" parent="." instance=ExtResource("1_l3jtn")]
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(0.449163, -0.665349, 0.596292, 0, 0.667404, 0.744696, -0.89345, -0.33449, 0.299773, 0.673766, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_giphd")
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368224, -0.0432987, -1.69366)
+use_collision = true
+size = Vector3(11.7404, 0.0994873, 12.7777)
