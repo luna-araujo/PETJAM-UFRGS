@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqw7msc16yh2k"]
+
+[ext_resource type="Texture2D" uid="uid://c0vilyrr81rqo" path="res://data/icons/stamina_wheel_background.svg" id="1_fn71k"]
+[ext_resource type="Texture2D" uid="uid://cod8ddq8smrsk" path="res://data/icons/stamina_wheel_filled.svg" id="2_j22vg"]
+
+[node name="StaminaIndicator" type="TextureProgressBar"]
+offset_right = 128.0
+offset_bottom = 128.0
+step = 0.1
+value = 42.9
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_fn71k")
+texture_progress = ExtResource("2_j22vg")
