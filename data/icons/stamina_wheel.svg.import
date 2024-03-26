@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cod8ddq8smrsk"
-path="res://.godot/imported/stamina_wheel_filled.svg-83b6561a10a1713152f769dbf2116822.ctex"
+uid="uid://c30jxrwxxnfu4"
+path="res://.godot/imported/stamina_wheel.svg-7f06108ded797d5967170c0f951da21d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/icons/stamina_wheel_filled.svg"
-dest_files=["res://.godot/imported/stamina_wheel_filled.svg-83b6561a10a1713152f769dbf2116822.ctex"]
+source_file="res://data/icons/stamina_wheel.svg"
+dest_files=["res://.godot/imported/stamina_wheel.svg-7f06108ded797d5967170c0f951da21d.ctex"]
 
 [params]
 
