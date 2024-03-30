@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://37r5yb45sm30"]
+
+[ext_resource type="PackedScene" uid="uid://dtv05mh2j06ay" path="res://scenes/bonfire.tscn" id="1_rar82"]
+[ext_resource type="PackedScene" uid="uid://cxk6r2jldfakj" path="res://scenes/rat.tscn" id="2_w86ba"]
+
+[node name="RatCompound" type="Node3D"]
+
+[node name="bonfire" parent="." instance=ExtResource("1_rar82")]
+
+[node name="Skeleton3D" parent="bonfire/Armature" index="0"]
+bones/0/rotation = Quaternion(-4.30841e-08, -1.0301e-08, -0.707107, 0.707107)
+
+[node name="rat" parent="bonfire/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.0663293, 0.000870834, 1.16987e-10, -0.000870834, 0.0663293, -7.66054e-13, -1.16987e-10, -7.69607e-13, 0.0663351, 0.144997, 1.35341, 1.74756e-07)
+
+[node name="rats" type="Node3D" parent="."]
+
+[node name="rat8" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(0.794315, 0, 0, 0, 0.794315, 0, 0, 0, 0.794315, -0.0202734, 0, -3.58538)
+
+[node name="rat9" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(-0.831753, 0, 0.616222, 0, 1.35265, 0, -0.757766, 0, -0.676389, -2.47154, -0.0330462, 2.91279)
+
+[node name="rat10" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(0.481509, 0, 0.876441, 0, 1, 0, -0.876441, 0, 0.481509, -3.46082, 0, -1.71494)
+
+[node name="rat11" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(1.0416, -0.00208662, 0.0230068, 0.00227208, 0.991986, -0.00207436, -0.0302492, 0.00265858, 0.79206, 3.19104, 0, 0.0777304)
+
+[node name="rat12" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(0.142367, 0, -0.410297, 0, 0.434295, 0, 0.410297, 0, 0.142367, 4.25547, -0.102181, -0.288109)
+
+[node name="rat13" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(-0.110216, 0, -0.360139, 0, 0.376627, 0, 0.360139, 0, -0.110216, 4.47114, 0, 0.6907)
+
+[node name="rat14" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(-0.713116, 0, -0.701046, 0, 1, 0, 0.701046, 0, -0.713116, 2.66905, 0, 3.19786)
+
+[node name="rat15" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(-0.725605, 0, 0.354174, 0, 0.820932, 0, -0.383961, 0, -0.669313, -1.55175, -0.0330462, 3.8099)
+
+[node name="rat16" parent="rats" instance=ExtResource("2_w86ba")]
+transform = Transform3D(0.960944, 0, -0.276744, 0, 1, 0, 0.276744, 0, 0.960944, 1.59147, -4.76837e-07, -3.71969)
+
+[editable path="bonfire"]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bh8fryn10ny5v"
-path="res://.godot/imported/rat.glb-68840c41ca7f218391570dc4af18489f.scn"
+uid="uid://qnenneknmfh3"
+path="res://.godot/imported/bonfire.glb-401f7ab32d053141f9a6c10d2dcfe2c0.scn"
 
 [deps]
 
-source_file="res://data/models/rat/rat.glb"
-dest_files=["res://.godot/imported/rat.glb-68840c41ca7f218391570dc4af18489f.scn"]
+source_file="res://data/models/bonfire/bonfire.glb"
+dest_files=["res://.godot/imported/bonfire.glb-401f7ab32d053141f9a6c10d2dcfe2c0.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "animations": {
-"Idle": {
+"Spin": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
