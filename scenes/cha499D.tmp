@@ -1,14 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl1i5sdlyg2ap"]
+[gd_scene load_steps=7 format=3 uid="uid://bl1i5sdlyg2ap"]
 
 [ext_resource type="Script" path="res://src/character_control/character_controller.gd" id="1_ign4w"]
 [ext_resource type="PackedScene" uid="uid://2l7wqwga4v1k" path="res://scenes/character/pidgeon.tscn" id="2_if5av"]
 [ext_resource type="Script" path="res://scenes/StaminaBarController.gd" id="3_b6mk4"]
 [ext_resource type="PackedScene" uid="uid://cqw7msc16yh2k" path="res://scenes/ui/stamina_indicator.tscn" id="4_84q0i"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_gb1fp"]
+viewport_path = NodePath("character_controller/StaminaBar/staminaBarViewport")
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
 
 [node name="character_controller" type="CharacterBody3D"]
 script = ExtResource("1_ign4w")
+
+[node name="StaminaBar" type="Sprite3D" parent="."]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, 0, 0.965546, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_gb1fp")
+script = ExtResource("3_b6mk4")
+
+[node name="staminaBarViewport" type="SubViewport" parent="StaminaBar"]
+disable_3d = true
+transparent_bg = true
+
+[node name="StaminaIndicator" parent="StaminaBar/staminaBarViewport" instance=ExtResource("4_84q0i")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -18,10 +33,3 @@ shape = SubResource("SphereShape3D_h0wee")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.89512, 4.03044)
-
-[node name="StaminaIndicator" parent="." instance=ExtResource("4_84q0i")]
-offset_left = 640.0
-offset_top = 266.0
-offset_right = 768.0
-offset_bottom = 394.0
-script = ExtResource("3_b6mk4")
