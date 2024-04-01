@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_qvhm7"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="3_t2inb"]
-[ext_resource type="PackedScene" path="res://scenes/rat_compound.tscn" id="4_rexi2"]
+[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="4_rexi2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bd7py"]
 sky_horizon_color = Color(0.529412, 0.678431, 0.780392, 1)
