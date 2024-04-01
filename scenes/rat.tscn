@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxk6r2jldfakj"]
+[gd_scene load_steps=3 format=3 uid="uid://cxk6r2jldfakj"]
 
 [ext_resource type="PackedScene" uid="uid://bh8fryn10ny5v" path="res://data/models/rat/rat.glb" id="1_02hvq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se748"]
+height = 2.43485
 
 [node name="rat" instance=ExtResource("1_02hvq")]
 
@@ -12,3 +15,9 @@ bones/7/rotation = Quaternion(0.699581, 0.102887, 0.699582, -0.102887)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.279751, 0.124497)
+shape = SubResource("CapsuleShape3D_se748")

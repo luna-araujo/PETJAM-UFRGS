@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo3iw6d2nv541"]
+
+[ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_i58be"]
+[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ttfh"]
+
+[sub_resource type="Sky" id="Sky_jogmd"]
+sky_material = SubResource("ProceduralSkyMaterial_2ttfh")
+
+[sub_resource type="Environment" id="Environment_jwjbo"]
+background_mode = 2
+sky = SubResource("Sky_jogmd")
+ssao_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q68vd"]
+transparency = 1
+albedo_color = Color(0.262745, 0.415686, 1, 0.658824)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wbufq"]
+material = SubResource("StandardMaterial3D_q68vd")
+size = Vector2(5000, 5000)
+
+[node name="City" type="Node3D"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.62928, 0.700627, -0.336346, -0.122006, 0.51647, 0.847569, 0.767543, -0.492322, 0.410485, 0, 55.7436, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jwjbo")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.1096, 0)
+mesh = SubResource("PlaneMesh_wbufq")
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.1665, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+size = Vector3(25.4473, 45.333, 25.8223)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.87769, -68.6911)
+size = Vector3(25.4473, 35.5776, 25.8223)
+
+[node name="character_controller" parent="." instance=ExtResource("1_i58be")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46769, 44.8237, 10.6766)
+
+[node name="Camera3D" type="Camera3D" parent="character_controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0414119, 1.55211, 2.91117)
+current = true
+
+[node name="RatCompound" parent="." instance=ExtResource("2_u8xxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15563, 44.833, 2.17903)
