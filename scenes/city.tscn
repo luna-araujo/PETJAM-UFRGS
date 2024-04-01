@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo3iw6d2nv541"]
+[gd_scene load_steps=9 format=3 uid="uid://dclfsa0u04vly"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_i58be"]
-[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
+[ext_resource type="PackedScene" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
+[ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_8slnf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ttfh"]
 
@@ -41,10 +42,6 @@ mesh = SubResource("PlaneMesh_wbufq")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.1665, 0)
 use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.818619, 32.7278, 8.54436)
-size = Vector3(44.3505, 110.789, 42.911)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9009, 17.7879, -111.508)
@@ -134,10 +131,13 @@ size = Vector3(77.9091, 165.097, 42.911)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46769, 110.307, 10.6766)
 
 [node name="RatCompound" parent="." instance=ExtResource("2_u8xxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15563, 110.316, 2.17903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15563, 110.26, 2.17903)
 
 [node name="RatCompound2" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7584, 213.095, -259.391)
 
 [node name="RatCompound3" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -541.901, 455.019, -259.391)
+
+[node name="Building1" parent="." instance=ExtResource("3_8slnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.819, 10.149, 8.544)
