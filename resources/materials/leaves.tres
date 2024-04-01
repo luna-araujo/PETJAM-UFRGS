@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cxw5wuik7dpob"]
+
+[ext_resource type="Texture2D" uid="uid://dn8eytyym6xkj" path="res://data/textures/leaf.png" id="1_rcm32"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_rcm32")
+metallic_specular = 0.0
