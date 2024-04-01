@@ -13,7 +13,6 @@ sky_material = SubResource("ProceduralSkyMaterial_2ttfh")
 background_mode = 2
 sky = SubResource("Sky_jogmd")
 ssao_enabled = true
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q68vd"]
@@ -139,5 +138,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7584, 213.095, -259.391)
 [node name="RatCompound3" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -541.901, 455.019, -259.391)
 
-[node name="Building1" parent="." instance=ExtResource("3_8slnf")]
+[node name="Building2" parent="." instance=ExtResource("3_8slnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.819, 10.149, 8.544)
