@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://6ahxbeocta4c"]
+
+[ext_resource type="Material" uid="uid://fpy6lh1wqtrb" path="res://resources/materials/concrete.tres" id="1_vi3uy"]
+[ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="2_1ailv"]
+[ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_sb2ek"]
+[ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/Building3.tscn" id="4_gawro"]
+[ext_resource type="PackedScene" path="res://scenes/rat_compound.tscn" id="5_jw84n"]
+[ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="5_xo5kh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbt11"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jurmc"]
+sky_material = SubResource("ProceduralSkyMaterial_vbt11")
+
+[sub_resource type="Environment" id="Environment_mfber"]
+background_mode = 2
+sky = SubResource("Sky_jurmc")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_t81v5"]
+size = Vector3(100, 1, 100)
+
+[node name="BuildingsTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mfber")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="env" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("1_vi3uy")
+mesh = SubResource("BoxMesh_t81v5")
+skeleton = NodePath("../..")
+
+[node name="Building1" parent="env" instance=ExtResource("2_1ailv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, 0, -20)
+
+[node name="Building2" parent="env" instance=ExtResource("3_sb2ek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8857, 0, 25.533)
+
+[node name="Building3" parent="env" instance=ExtResource("4_gawro")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32.328, 0, 5.48118)
+
+[node name="RatCompound" parent="." instance=ExtResource("5_jw84n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2932, 24.9997, 2.92699)
+
+[node name="character_controller" parent="." instance=ExtResource("5_xo5kh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 40, -19)

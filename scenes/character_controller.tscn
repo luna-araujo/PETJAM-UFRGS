@@ -25,3 +25,5 @@ offset_top = 266.0
 offset_right = 768.0
 offset_bottom = 394.0
 script = ExtResource("3_b6mk4")
+
+[editable path="pidgeon"]
