@@ -6,7 +6,7 @@
 offset_right = 128.0
 offset_bottom = 128.0
 step = 0.1
-value = 31.5
+value = 15.9
 fill_mode = 4
 nine_patch_stretch = true
 texture_under = ExtResource("1_airah")

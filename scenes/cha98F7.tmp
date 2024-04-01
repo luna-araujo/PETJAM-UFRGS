@@ -23,7 +23,6 @@ sky = SubResource("Sky_abqd5")
 
 [node name="character_controller" parent="." instance=ExtResource("1_qvhm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08121, 13.8902, 0.641686)
-coef = 13.225
 
 [node name="Camera3D2" type="Camera3D" parent="character_controller"]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2.26529, 5.68791)
