@@ -9,7 +9,7 @@ const JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
 const VELOCITY_DAMP = 0.99;
 const MAX_VELOCITY = 50.0;
-const STAMINA_PASSIVE_DEP = 5.0;
+const STAMINA_PASSIVE_DEP = -5.0;
 const STAMINA_JOLT_DEP = 10.0;
 const DRAG_COEF = 0.999;
 const WEIGHT = 3.0;
@@ -43,7 +43,7 @@ func process_grounded(delta):
 	
 	#reset stamina because on ground
 	if(is_on_floor()):
-		current_stamina = move_toward(current_stamina, 100.0, STAMINA_PASSIVE_DEP * delta * 10.0);
+		current_stamina = move_toward(current_stamina, 100.0, 50.0 * delta * 10.0);
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("player_left", "player_right", "player_forward", "player_backwards")
@@ -130,7 +130,7 @@ func process_flying(delta):
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
-	current_stamina = move_toward(current_stamina, 0.0, STAMINA_PASSIVE_DEP * delta);
+	current_stamina = clamp(current_stamina - STAMINA_PASSIVE_DEP * delta, 0.0, 100.0);
 	velocity *= DRAG_COEF
 	if(velocity.length() > MAX_VELOCITY):
 		velocity = velocity.normalized() * MAX_VELOCITY;

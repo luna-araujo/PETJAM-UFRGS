@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://2l7wqwga4v1k"]
+
+[ext_resource type="PackedScene" uid="uid://bnmlp678v6bb3" path="res://data/models/pidgeon/pidgeon.glb" id="1_uha8d"]
+
+[node name="pidgeon" instance=ExtResource("1_uha8d")]
+
+[node name="rightWingAttach" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.00611957, 0.0927272, -0.995671, -0.660245, -0.748177, -0.0656198, -0.751022, 0.656988, 0.0658013, 0.245444, 0.644201, -0.227425)
+bone_name = "R.Wing"
+bone_idx = 6
+override_pose = true
+
+[node name="leftWingAttach" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(-0.00611852, -0.0927269, 0.995672, 0.660246, -0.748177, -0.0656203, 0.751023, 0.656988, 0.0658003, -0.245444, 0.644201, -0.227425)
+bone_name = "L.Wing"
+bone_idx = 3
+override_pose = true

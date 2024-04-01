@@ -1,12 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl1i5sdlyg2ap"]
+[gd_scene load_steps=4 format=3 uid="uid://bl1i5sdlyg2ap"]
 
 [ext_resource type="Script" path="res://src/character_control/character_controller.gd" id="1_ign4w"]
+[ext_resource type="PackedScene" uid="uid://2l7wqwga4v1k" path="res://scenes/character/pidgeon.tscn" id="2_if5av"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_y6iua"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_0g7kv"]
 
 [node name="character_controller" type="CharacterBody3D"]
 script = ExtResource("1_ign4w")
@@ -15,16 +12,4 @@ script = ExtResource("1_ign4w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_h0wee")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CapsuleMesh_y6iua")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.64, 0, 0, 0, 0.063, 0, 0, 0, 0.465, 0, 0.617594, -0.0404066)
-mesh = SubResource("BoxMesh_0g7kv")
-skeleton = NodePath("../MeshInstance3D2")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0.699509, -0.360811)
-mesh = SubResource("BoxMesh_0g7kv")
+[node name="pidgeon" parent="." instance=ExtResource("2_if5av")]
