@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvkgwkdm3beex"
-path="res://.godot/imported/interior_3.png-355fe04b92324b282db3c8c837080166.ctex"
+uid="uid://bpb1agb40f3xr"
+path="res://.godot/imported/rat_Pallete.png-1cc41f6d91a5053df0f962f869fe3bfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/textures/interior_3.png"
-dest_files=["res://.godot/imported/interior_3.png-355fe04b92324b282db3c8c837080166.ctex"]
+source_file="res://data/textures/rat_Pallete.png"
+dest_files=["res://.godot/imported/rat_Pallete.png-1cc41f6d91a5053df0f962f869fe3bfc.ctex"]
 
 [params]
 

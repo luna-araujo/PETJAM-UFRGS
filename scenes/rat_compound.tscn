@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://37r5yb45sm30"]
+[gd_scene load_steps=4 format=3 uid="uid://b41peahocqifl"]
 
-[ext_resource type="PackedScene" uid="uid://dtv05mh2j06ay" path="res://scenes/bonfire.tscn" id="1_rar82"]
-[ext_resource type="PackedScene" uid="uid://cxk6r2jldfakj" path="res://scenes/rat.tscn" id="2_w86ba"]
+[ext_resource type="PackedScene" path="res://scenes/bonfire.tscn" id="1_rar82"]
+[ext_resource type="Material" uid="uid://ds3bg03ig428c" path="res://resources/materials/pallete.tres" id="2_e2o6i"]
+[ext_resource type="PackedScene" uid="uid://drtpv016yt38l" path="res://scenes/rat.tscn" id="2_w86ba"]
 
 [node name="RatCompound" type="Node3D"]
 
@@ -12,6 +13,9 @@ bones/0/rotation = Quaternion(-4.30841e-08, -1.0301e-08, -0.707107, 0.707107)
 
 [node name="rat" parent="bonfire/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.0663293, 0.000870834, 1.16987e-10, -0.000870834, 0.0663293, -7.66054e-13, -1.16987e-10, -7.69607e-13, 0.0663351, 0.144997, 1.35341, 1.74756e-07)
+
+[node name="rat" parent="bonfire/Armature/Skeleton3D/rat" index="0"]
+surface_material_override/0 = ExtResource("2_e2o6i")
 
 [node name="rats" type="Node3D" parent="."]
 

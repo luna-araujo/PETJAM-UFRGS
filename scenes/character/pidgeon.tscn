@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://2l7wqwga4v1k"]
+[gd_scene load_steps=8 format=3 uid="uid://2l7wqwga4v1k"]
 
 [ext_resource type="PackedScene" uid="uid://bnmlp678v6bb3" path="res://data/models/pidgeon/pidgeon.glb" id="1_uha8d"]
+[ext_resource type="Material" uid="uid://ds3bg03ig428c" path="res://resources/materials/pallete.tres" id="2_6ftuq"]
 
 [sub_resource type="Animation" id="Animation_qqk36"]
 length = 0.001
@@ -294,6 +295,9 @@ bones/8/rotation = Quaternion(0.00981745, -0.0260767, 0.969648, -0.242913)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.0592184, -0.704623, -0.0592184, 0.704623)
 bones/9/scale = Vector3(1, 1, 1)
+
+[node name="Pidgeon" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_6ftuq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
