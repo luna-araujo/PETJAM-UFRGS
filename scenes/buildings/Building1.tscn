@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://3wbvojwad4kq" path="res://data/models/buildings/building_1.obj" id="1_c4kou"]
 [ext_resource type="Material" uid="uid://fpy6lh1wqtrb" path="res://resources/materials/concrete.tres" id="2_ynbtk"]
-[ext_resource type="Material" uid="uid://cy04wjv7qe6a1" path="res://resources/materials/building_window.tres" id="3_64blh"]
+[ext_resource type="Material" uid="uid://chmms72swuovq" path="res://resources/materials/building_window.tres" id="3_bf3rr"]
 [ext_resource type="ArrayMesh" uid="uid://ddf8ioo8ny1ec" path="res://data/models/buildings/vegetation/building_1_veg.obj" id="4_oqxe2"]
 [ext_resource type="Material" uid="uid://cxw5wuik7dpob" path="res://resources/materials/leaves.tres" id="5_1fy44"]
 
@@ -14,7 +14,7 @@ data = PackedVector3Array(5.6998, 5, 9.9998, 5.6998, 3.4997, 9.9998, 3.2997, 5, 
 [node name="building" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_c4kou")
 surface_material_override/0 = ExtResource("2_ynbtk")
-surface_material_override/1 = ExtResource("3_64blh")
+surface_material_override/1 = ExtResource("3_bf3rr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="building"]
 
