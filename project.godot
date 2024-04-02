@@ -8,6 +8,8 @@
 
 config_version=5
 
+show_default_buttons=false
+
 [application]
 
 config/name="PETJAM-UFRGS"
@@ -18,6 +20,10 @@ config/icon="res://data/icons/icon.svg"
 [display]
 
 window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tool_button/plugin.cfg")
 
 [input]
 

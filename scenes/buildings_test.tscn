@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi2uqwfymrjrw"]
+[gd_scene load_steps=13 format=3 uid="uid://bi2uqwfymrjrw"]
 
+[ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_oucvp"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="2_1ailv"]
 [ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_sb2ek"]
 [ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/Building3.tscn" id="4_gawro"]
@@ -42,6 +43,9 @@ size = Vector3(1000, 1, 1000)
 size = Vector2(100000, 100000)
 
 [node name="BuildingsTest" type="Node3D"]
+
+[node name="Randomize Buildings" type="Node" parent="."]
+script = ExtResource("1_oucvp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mfber")
