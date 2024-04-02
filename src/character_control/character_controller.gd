@@ -19,6 +19,7 @@ var pitch = 0.0;
 var player_front = Vector3(0.0,0.0,-1.0);
 var player_right;
 var player_up;
+var player_body_target;
 
 @export var coef := 50.0;
 
@@ -44,9 +45,9 @@ func can_jolt():
 func process_grounded(delta):
 	
 	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
-		player_body.look_at(Vector3(global_position + Vector3(velocity.x, 0.0, velocity.z).normalized()));
+		player_body_target = Vector3(velocity.x, 0.0, velocity.z).normalized();
 	else:
-		player_body.look_at(Vector3(global_position + Vector3(player_front.x, 0.0, player_front.z).normalized()));
+		player_body_target = Vector3(player_front.x, 0.0, player_front.z).normalized();
 	#reset stamina because on ground
 	if(is_on_floor()):
 		current_stamina = move_toward(current_stamina, 100.0, 50.0 * delta * 10.0);
@@ -61,6 +62,7 @@ func process_grounded(delta):
 			current_stamina -= STAMINA_JOLT_DEP;
 			jolt_cooldown = JOLT_COOLDOW;
 			#velocity.y = -0.5;
+			animator.stop();
 			animator.play("flap");
 			cur_force += (direction * 0.25 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 			grounded = false;
@@ -87,7 +89,8 @@ func process_flying(delta):
 		animator.play("fly");
 	
 	if(velocity.normalized().dot(WORLD_UP) < 1.0):
-		player_body.look_at(Vector3(global_position + velocity.normalized()));
+		player_body_target = velocity.normalized();
+	
 	var inertia = velocity.length() * WEIGHT;
 	
 	if(is_on_floor()):
@@ -103,10 +106,10 @@ func process_flying(delta):
 	if(Input.is_action_just_pressed("player_up") and can_jolt()):
 		current_stamina = move_toward(current_stamina, 0.0, STAMINA_JOLT_DEP);
 		jolt_cooldown = JOLT_COOLDOW;
+		animator.stop();
 		animator.play("flap");
 		cur_force += (direction * 0.5 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
-	
-	
+
 	velocity.y += -gravity * delta;
 
 	var acc = (velocity.length() * player_front - velocity) * inertia * delta;
@@ -116,7 +119,6 @@ func process_flying(delta):
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_right, Color("#0066ff"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_up, Color("#00ff66"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + acc, Color("#00ff66"));
-	
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
@@ -136,11 +138,18 @@ func _process(delta):
 	player_right = player_front.cross(WORLD_UP).normalized();
 	player_up = player_right.cross(player_front).normalized();
 	
+	var player_body_cur = -player_body.get_global_transform().basis.z;
+	var off = (player_body_target - player_body_cur) * 10.0 * delta;
+	
+	player_body.look_at(player_body.global_position + player_body_cur + off, WORLD_UP);
+	
 	if(grounded):
 		process_grounded(delta);
 	else:
 		process_flying(delta);
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_target, Color("#6600FF"));
 	
 	velocity += cur_force;
 	cur_force *= damp_amt;
@@ -155,6 +164,7 @@ func _process(delta):
 func  _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	animator.play("RESET");
+	player_body_target = Vector3(0.0,0.0,-1.0);
 	
 func _input(event):
 	if event is InputEventMouseMotion:
