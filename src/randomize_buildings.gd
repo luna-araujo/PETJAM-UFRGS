@@ -10,10 +10,9 @@ func _randomize():
 	var buildings: Array[Building] = []
 	getBuildings(get_parent(), buildings)
 	for building in buildings:
-		building._generate()
+		building._randomize()
 
 func getBuildings(node: Node, output: Array):
-	print(node.name)
 	if node is Building:
 		output.append(node as Building)
 	for child in node.get_children(false):

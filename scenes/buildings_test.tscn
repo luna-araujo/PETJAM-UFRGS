@@ -1,11 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://bi2uqwfymrjrw"]
+[gd_scene load_steps=21 format=3 uid="uid://bi2uqwfymrjrw"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_oucvp"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="2_1ailv"]
+[ext_resource type="ArrayMesh" uid="uid://3wbvojwad4kq" path="res://data/models/buildings/building_1.obj" id="3_aaa6i"]
 [ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_sb2ek"]
+[ext_resource type="ArrayMesh" uid="uid://ddf8ioo8ny1ec" path="res://data/models/buildings/vegetation/building_1_veg.obj" id="4_e2rg0"]
 [ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/Building3.tscn" id="4_gawro"]
+[ext_resource type="ArrayMesh" uid="uid://ney0n4vjbho0" path="res://data/models/buildings/vegetation/building_1_veg_2.mtl.obj" id="5_aopg3"]
 [ext_resource type="PackedScene" uid="uid://b41peahocqifl" path="res://scenes/rat_compound.tscn" id="5_jw84n"]
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="5_xo5kh"]
+[ext_resource type="ArrayMesh" uid="uid://r2kc55segp3p" path="res://data/models/buildings/building_2.obj" id="7_mo0as"]
+[ext_resource type="ArrayMesh" uid="uid://cmgxkx0ixjmae" path="res://data/models/buildings/vegetation/building_2_veg_2.obj" id="8_t6bvc"]
+[ext_resource type="ArrayMesh" uid="uid://ds5en1xr62no2" path="res://data/models/buildings/vegetation/building_2_veg_1.obj" id="9_tlcau"]
+[ext_resource type="ArrayMesh" uid="uid://bgjtl5gqy2a5b" path="res://data/models/buildings/building_3.obj" id="11_gv02o"]
+[ext_resource type="ArrayMesh" uid="uid://dlgu81spgpsrl" path="res://data/models/buildings/vegetation/building_3_veg.obj" id="12_nmcq4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbt11"]
 sky_top_color = Color(0.25098, 0.466667, 0.654902, 1)
@@ -70,42 +78,68 @@ skeleton = NodePath("../..")
 
 [node name="Building1" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26, 0, -37)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("5_aopg3")
 
 [node name="Building13" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -68, -5, -24)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building11" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35, 0, -103)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building4" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 20, -4, -37)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("5_aopg3")
 
 [node name="Building7" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 55, 13.4082, -20)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("5_aopg3")
 
 [node name="Building8" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61, 6.40816, 7)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building6" parent="env" instance=ExtResource("2_1ailv")]
 transform = Transform3D(0.98821, -0.124912, -0.0885358, 0.140061, 0.971107, 0.193219, 0.0618424, -0.203341, 0.977153, -12.9433, -18.2221, -72.1974)
+building_mesh = ExtResource("3_aaa6i")
+vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building2" parent="env" instance=ExtResource("3_sb2ek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8857, 0, 2.533)
+building_mesh = ExtResource("7_mo0as")
+vegetation_mesh = ExtResource("8_t6bvc")
 
 [node name="Building5" parent="env" instance=ExtResource("3_sb2ek")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 25.1143, -16, 31.533)
+building_mesh = ExtResource("7_mo0as")
+vegetation_mesh = ExtResource("9_tlcau")
 
 [node name="Building9" parent="env" instance=ExtResource("3_sb2ek")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 101.114, 15, -8.467)
+building_mesh = ExtResource("7_mo0as")
+vegetation_mesh = ExtResource("8_t6bvc")
 
 [node name="Building10" parent="env" instance=ExtResource("3_sb2ek")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.114304, -15, -120.467)
+building_mesh = ExtResource("7_mo0as")
+vegetation_mesh = ExtResource("9_tlcau")
 
 [node name="Building12" parent="env" instance=ExtResource("3_sb2ek")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -76.8857, -34, -85.467)
+building_mesh = ExtResource("7_mo0as")
+vegetation_mesh = ExtResource("8_t6bvc")
 
 [node name="Building3" parent="env" instance=ExtResource("4_gawro")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.328, 0, -8.51882)
+building_mesh = ExtResource("11_gv02o")
+vegetation_mesh = ExtResource("12_nmcq4")
 
 [node name="RatCompound" parent="env/Building3" instance=ExtResource("5_jw84n")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.55419, 24.9997, -3.0348)
