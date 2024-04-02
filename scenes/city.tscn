@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_i58be"]
 [ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/Building2.tscn" id="3_8slnf"]
+[ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_8slnf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ttfh"]
 

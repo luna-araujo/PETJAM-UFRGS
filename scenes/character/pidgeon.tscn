@@ -272,17 +272,23 @@ _data = {
 [node name="pidgeon" instance=ExtResource("1_uha8d")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(9.37488e-09, 0.22527, 0.0733299)
 bones/0/rotation = Quaternion(-0.210659, 0.674998, -0.210659, 0.674999)
+bones/1/position = Vector3(-2.98023e-08, 0.652011, -7.10543e-15)
 bones/1/rotation = Quaternion(-6.1497e-08, 3.39803e-07, 0.276419, 0.961037)
 bones/2/rotation = Quaternion(-0.645571, 0.288508, 0.645572, 0.288508)
 bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.00908929, 0.51563, -0.245444)
 bones/3/rotation = Quaternion(-0.00574458, -0.0461585, 0.997242, 0.0578352)
 bones/3/scale = Vector3(0.999998, 1, 0.999999)
+bones/4/position = Vector3(3.45754e-08, 0.37722, -1.86265e-08)
 bones/4/rotation = Quaternion(0.103967, -0.00543506, -0.222897, 0.969267)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.969648, 0.242913, 0.00981713, 0.0260765)
+bones/6/position = Vector3(0.00908943, 0.51563, 0.245444)
 bones/6/rotation = Quaternion(0.997242, -0.0578351, -0.00574535, 0.0461587)
 bones/6/scale = Vector3(0.999997, 1, 0.999998)
+bones/7/position = Vector3(1.78115e-08, 0.37722, -8.3819e-09)
 bones/8/position = Vector3(0.0313403, 0.0903142, 0.170653)
 bones/8/rotation = Quaternion(0.00981745, -0.0260767, 0.969648, -0.242913)
 bones/8/scale = Vector3(1, 1, 1)

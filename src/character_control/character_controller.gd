@@ -43,7 +43,7 @@ func can_jolt():
 
 func process_grounded(delta):
 	
-	if(velocity.length() > 0.0000001):
+	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
 		player_body.look_at(Vector3(global_position + Vector3(velocity.x, 0.0, velocity.z).normalized()));
 	else:
 		player_body.look_at(Vector3(global_position + Vector3(player_front.x, 0.0, player_front.z).normalized()));
@@ -86,7 +86,8 @@ func process_flying(delta):
 	if(!animator.is_playing()):
 		animator.play("fly");
 	
-	player_body.look_at(Vector3(global_position + velocity.normalized()));
+	if(velocity.normalized().dot(WORLD_UP) < 1.0):
+		player_body.look_at(Vector3(global_position + velocity.normalized()));
 	var inertia = velocity.length() * WEIGHT;
 	
 	if(is_on_floor()):

@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://6ahxbeocta4c"]
+[gd_scene load_steps=11 format=3 uid="uid://bi2uqwfymrjrw"]
 
 [ext_resource type="Material" uid="uid://fpy6lh1wqtrb" path="res://resources/materials/concrete.tres" id="1_vi3uy"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="2_1ailv"]
 [ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_sb2ek"]
-[ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/Building3.tscn" id="4_gawro"]
-[ext_resource type="PackedScene" path="res://scenes/rat_compound.tscn" id="5_jw84n"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/Building3.tscn" id="4_gawro"]
+[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="5_jw84n"]
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="5_xo5kh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbt11"]
