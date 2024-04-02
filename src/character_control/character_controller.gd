@@ -1,18 +1,18 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const JOLT_FORCE = 0.75
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
+@export var JOLT_FORCE = 0.75
 const MOUSE_SEN = 0.25;
 const CAMERA_DIST = 3.0;
-const JOLT_COOLDOW = 0.5;
+@export var JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
-const VELOCITY_DAMP = 0.99;
-const MAX_VELOCITY = 100.0;
-const STAMINA_PASSIVE_DEP = -5.0;
-const STAMINA_JOLT_DEP = 10.0;
-const DRAG_COEF = 1.0;
-const WEIGHT = 3.0;
+@export var VELOCITY_DAMP = 0.99;
+@export var MAX_VELOCITY = 100.0;
+@export var STAMINA_PASSIVE_DEP = -5.0;
+@export var STAMINA_JOLT_DEP = 10.0;
+@export var DRAG_COEF = 1.0;
+@export var WEIGHT = 3.0;
 
 var yaw = 0.0;
 var pitch = 0.0;
@@ -148,8 +148,8 @@ func _process(delta):
 	else:
 		process_flying(delta);
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
-	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
-	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_target, Color("#6600FF"));
+	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
+	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_target, Color("#6600FF"));
 	
 	velocity += cur_force;
 	cur_force *= damp_amt;
