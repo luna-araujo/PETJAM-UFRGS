@@ -7,12 +7,12 @@ const MOUSE_SEN = 0.25;
 const CAMERA_DIST = 3.0;
 @export var JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
-@export var VELOCITY_DAMP = 0.99;
+@export var VELOCITY_DAMP = 1.00;
 @export var MAX_VELOCITY = 30.0;
 @export var STAMINA_PASSIVE_DEP = -5.0;
 @export var STAMINA_JOLT_DEP = 10.0;
 @export var DRAG_COEF = 1.0;
-@export var WEIGHT = 3.0;
+@export var WEIGHT = 0.2;
 
 var yaw = 0.0;
 var pitch = 0.0;
@@ -87,6 +87,8 @@ func process_flying(delta):
 		player_body_target = velocity.normalized();
 	
 	var inertia = velocity.length() * WEIGHT;
+	if(cur_force.length() > 0.0000001):
+		inertia = velocity.length() * 1.0;
 	
 	if(is_on_floor()):
 		grounded = true;
