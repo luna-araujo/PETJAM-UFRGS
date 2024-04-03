@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://2l7wqwga4v1k"]
+[gd_scene load_steps=24 format=3 uid="uid://2l7wqwga4v1k"]
 
 [ext_resource type="PackedScene" uid="uid://bnmlp678v6bb3" path="res://data/models/pidgeon/pidgeon.glb" id="1_uha8d"]
 [ext_resource type="Material" uid="uid://ds3bg03ig428c" path="res://resources/materials/pallete.tres" id="2_6ftuq"]
@@ -711,22 +711,32 @@ xfade_time = 0.3
 advance_mode = 2
 advance_condition = &"flying"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xyqb0"]
+xfade_time = 0.3
+advance_mode = 2
+advance_condition = &"flying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iqsop"]
+xfade_time = 0.3
+advance_mode = 2
+advance_condition = &"idling"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_86okx"]
 states/End/position = Vector2(856, 178)
 states/Start/position = Vector2(320, 124)
 states/flap/node = SubResource("AnimationNodeAnimation_5cxb2")
 states/flap/position = Vector2(543, 261)
 states/fly/node = SubResource("AnimationNodeAnimation_vqnwg")
-states/fly/position = Vector2(658, 189)
+states/fly/position = Vector2(543, 166)
 states/idle/node = SubResource("AnimationNodeAnimation_7u2ne")
 states/idle/position = Vector2(458, 57)
 states/walk/node = SubResource("AnimationNodeAnimation_3mq0b")
-states/walk/position = Vector2(566, 74)
-transitions = ["fly", "flap", SubResource("AnimationNodeStateMachineTransition_3mqrr"), "flap", "fly", SubResource("AnimationNodeStateMachineTransition_r4oxo"), "fly", "walk", SubResource("AnimationNodeStateMachineTransition_hcv3n"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_yrfd1"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_uml5o"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_f4lwd"), "walk", "fly", SubResource("AnimationNodeStateMachineTransition_isl4t")]
-graph_offset = Vector2(-130.608, -43)
+states/walk/position = Vector2(630, 57)
+transitions = ["fly", "flap", SubResource("AnimationNodeStateMachineTransition_3mqrr"), "flap", "fly", SubResource("AnimationNodeStateMachineTransition_r4oxo"), "fly", "walk", SubResource("AnimationNodeStateMachineTransition_hcv3n"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_yrfd1"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_uml5o"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_f4lwd"), "walk", "fly", SubResource("AnimationNodeStateMachineTransition_isl4t"), "idle", "fly", SubResource("AnimationNodeStateMachineTransition_xyqb0"), "fly", "idle", SubResource("AnimationNodeStateMachineTransition_iqsop")]
+graph_offset = Vector2(-82.6081, -3)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oah2y"]
-graph_offset = Vector2(299.795, 105.111)
+graph_offset = Vector2(299.795, 105)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_86okx")
 nodes/StateMachine/position = Vector2(600, 100)
 nodes/output/position = Vector2(880, 160)
