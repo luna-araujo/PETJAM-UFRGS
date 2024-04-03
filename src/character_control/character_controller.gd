@@ -171,3 +171,5 @@ func process_animations():
 	anim_tree["parameters/StateMachine/conditions/flying"] = !grounded;
 	anim_tree["parameters/StateMachine/conditions/idling"] = grounded && velocity.length() <= 0.01;
 	anim_tree["parameters/StateMachine/conditions/walking"] = grounded && velocity.length() > 0.01;
+	var player_body_cur = -player_body.get_global_transform().basis.z;
+	anim_tree["parameters/StateMachine/fly/blend_position"] = player_body_cur.dot(-WORLD_UP);
