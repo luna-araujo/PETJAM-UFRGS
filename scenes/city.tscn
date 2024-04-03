@@ -13,7 +13,14 @@ sky_material = SubResource("ProceduralSkyMaterial_2ttfh")
 background_mode = 2
 sky = SubResource("Sky_jogmd")
 ssao_enabled = true
-volumetric_fog_density = 0.01
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_y_scale = 0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.21
+volumetric_fog_anisotropy = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q68vd"]
 transparency = 1
@@ -27,7 +34,11 @@ size = Vector2(5000, 5000)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.62928, 0.700627, -0.336346, -0.122006, 0.51647, 0.847569, 0.767543, -0.492322, 0.410485, 0, 55.7436, 0)
+light_color = Color(0.952941, 0.929412, 0.721569, 1)
 shadow_enabled = true
+directional_shadow_split_1 = 0.003
+directional_shadow_split_2 = 0.01
+directional_shadow_max_distance = 5000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jwjbo")
@@ -66,8 +77,40 @@ size = Vector3(54.5517, 116.656, 44.598)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -542.355, 205.124, -250.203)
 size = Vector3(87.6874, 455.582, 69.345)
 
+[node name="CSGBox3D23" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.56514, 0, 0.824995, 0, 1, 0, -0.824995, 0, 0.56514, -177.067, 238.511, -197.235)
+size = Vector3(87.6874, 522.355, 69.345)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(-0.576504, 0, 0.817095, 0, 1, 0, -0.817095, 0, -0.576504, -177.067, 239.07, -322.468)
+size = Vector3(87.6874, 523.474, 69.345)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(-0.059916, 0, 0.998203, 0, 1, 0, -0.998203, 0, -0.059916, -165.627, 391.987, -259.273)
+size = Vector3(87.6874, 44.0886, 46.4245)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(-0.059916, 0, 0.998203, 0, 1, 0, -0.998203, 0, -0.059916, -165.627, 244.319, -259.273)
+size = Vector3(87.6874, 44.0886, 46.4245)
+
 [node name="CSGBox3D8" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -374.109, 143.096, -250.203)
+size = Vector3(87.6874, 331.525, 69.345)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -545.044, 143.096, -665.719)
+size = Vector3(87.6874, 331.525, 69.345)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.948782, 0, 0.315931, 0, 1, 0, -0.315931, 0, 0.948782, -691.77, 127.016, -665.719)
+size = Vector3(122.909, 299.365, 69.345)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.545619, 0, 0.838033, 0, 1, 0, -0.838033, 0, 0.545619, -787.461, 143.096, -566.195)
+size = Vector3(87.6874, 331.525, 69.345)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.17437, 0, -0.98468, 0, 1, 0, 0.98468, 0, 0.17437, -782.41, 143.096, -424.958)
 size = Vector3(87.6874, 331.525, 69.345)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
@@ -85,6 +128,18 @@ size = Vector3(87.6874, 331.525, 69.345)
 [node name="CSGBox3D7" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4871, 84.1547, -250.203)
 size = Vector3(87.6874, 213.642, 69.345)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.970603, 0, -0.240685, 0, 1, 0, 0.240685, 0, 0.970603, -267.005, 84.1547, -686.637)
+size = Vector3(297.046, 213.642, 69.345)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.999535, 0, -0.0304862, 0, 1, 0, 0.0304862, 0, 0.999535, -455.116, 22.7566, -463.557)
+size = Vector3(320.921, 90.8459, 219.988)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
+transform = Transform3D(0.970603, 0, -0.240685, 0, 1, 0, 0.240685, 0, 0.970603, -267.005, 84.1547, -811.855)
+size = Vector3(297.046, 213.642, 69.345)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Buildings/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -813.035, 84.1547, -134.424)
@@ -127,10 +182,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.794, 59.8822, -253.266)
 size = Vector3(77.9091, 165.097, 42.911)
 
 [node name="character_controller" parent="." instance=ExtResource("1_i58be")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46769, 110.307, 10.6766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -547.913, 455.067, -235.658)
 
 [node name="RatCompound" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15563, 110.26, 2.17903)
+
+[node name="RatCompound4" parent="." instance=ExtResource("2_u8xxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -472.228, 90.3225, -476.185)
+
+[node name="RatCompound6" parent="." instance=ExtResource("2_u8xxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.994, 521.834, -195.042)
+
+[node name="RatCompound5" parent="." instance=ExtResource("2_u8xxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -253.608, 213.123, -793.595)
 
 [node name="RatCompound2" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7584, 213.095, -259.391)

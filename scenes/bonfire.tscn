@@ -77,7 +77,7 @@ curve = SubResource("Curve_yp1ot")
 lifetime_randomness = 0.25
 emission_shape_scale = Vector3(0.5, 0.1, 0.5)
 angle_max = 720.0
-gravity = Vector3(0, 0.8, 0)
+gravity = Vector3(0.1, 0.8, 0)
 scale_min = 0.8
 scale_curve = SubResource("CurveTexture_3dcf7")
 color = Color(1, 1, 1, 0.658824)
@@ -140,3 +140,12 @@ draw_pass_1 = SubResource("QuadMesh_p2kjr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663386, 0)
 shape = SubResource("CylinderShape3D_k5tbs")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13231, 0)
+light_color = Color(1, 0.92549, 0.788235, 1)
+light_energy = 6.0
+light_indirect_energy = 4.0
+shadow_enabled = true
+shadow_blur = 5.0
+omni_range = 14.6669
