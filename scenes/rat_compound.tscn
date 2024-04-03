@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://37r5yb45sm30"]
+[gd_scene load_steps=4 format=3 uid="uid://b41peahocqifl"]
 
-[ext_resource type="PackedScene" uid="uid://dtv05mh2j06ay" path="res://scenes/bonfire.tscn" id="1_rar82"]
-[ext_resource type="PackedScene" uid="uid://cxk6r2jldfakj" path="res://scenes/rat.tscn" id="2_w86ba"]
+[ext_resource type="PackedScene" path="res://scenes/bonfire.tscn" id="1_rar82"]
+[ext_resource type="Material" uid="uid://ds3bg03ig428c" path="res://resources/materials/pallete.tres" id="2_e2o6i"]
+[ext_resource type="PackedScene" uid="uid://drtpv016yt38l" path="res://scenes/rat.tscn" id="2_w86ba"]
 
 [node name="RatCompound" type="Node3D"]
 
@@ -13,33 +14,37 @@ bones/0/rotation = Quaternion(-4.30841e-08, -1.0301e-08, -0.707107, 0.707107)
 [node name="rat" parent="bonfire/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.0663293, 0.000870834, 1.16987e-10, -0.000870834, 0.0663293, -7.66054e-13, -1.16987e-10, -7.69607e-13, 0.0663351, 0.144997, 1.35341, 1.74756e-07)
 
+[node name="rat" parent="bonfire/Armature/Skeleton3D/rat" index="0"]
+transform = Transform3D(1, 2.04606e-20, 2.22045e-16, 2.04655e-20, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_e2o6i")
+
 [node name="rats" type="Node3D" parent="."]
 
 [node name="rat8" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(0.794315, 0, 0, 0, 0.794315, 0, 0, 0, 0.794315, -0.0202734, 0, -3.58538)
+transform = Transform3D(0.599273, 0, 0, 0, 0.599273, 0, 0, 0, 0.599273, -0.53583, 0, -2.982)
 
 [node name="rat9" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(-0.831753, 0, 0.616222, 0, 1.35265, 0, -0.757766, 0, -0.676389, -2.47154, -0.0330462, 2.91279)
+transform = Transform3D(-0.474192, 0, 0.351315, 0, 0.771161, 0, -0.432011, 0, -0.385617, -2.08797, -0.0330462, 2.08505)
 
 [node name="rat10" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(0.481509, 0, 0.876441, 0, 1, 0, -0.876441, 0, 0.481509, -3.46082, 0, -1.71494)
+transform = Transform3D(0.336038, 0, 0.611654, 0, 0.697884, 0, -0.611654, 0, 0.336038, -2.9168, 0, -1.44849)
 
 [node name="rat11" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(1.0416, -0.00208662, 0.0230068, 0.00227208, 0.991986, -0.00207436, -0.0302492, 0.00265858, 0.79206, 3.19104, 0, 0.0777304)
+transform = Transform3D(0.719025, -0.00144041, 0.0158818, 0.00156843, 0.684776, -0.00143195, -0.0208813, 0.00183524, 0.546765, 2.61009, 0, -1.1)
 
 [node name="rat12" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(0.142367, 0, -0.410297, 0, 0.434295, 0, 0.410297, 0, 0.142367, 4.25547, -0.102181, -0.288109)
+transform = Transform3D(0.13163, 0, -0.379353, 0, 0.401541, 0, 0.379353, 0, 0.13163, 3.67227, -0.102181, -0.0315537)
 
 [node name="rat13" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(-0.110216, 0, -0.360139, 0, 0.376627, 0, 0.360139, 0, -0.110216, 4.47114, 0, 0.6907)
+transform = Transform3D(-0.110216, 0, -0.360139, 0, 0.376627, 0, 0.360139, 0, -0.110216, 3.53199, 0, 1.25913)
 
 [node name="rat14" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(-0.713116, 0, -0.701046, 0, 1, 0, 0.701046, 0, -0.713116, 2.66905, 0, 3.19786)
+transform = Transform3D(-0.469557, 0, -0.461609, 0, 0.658458, 0, 0.461609, 0, -0.469557, 2.15342, 0, 2.47339)
 
 [node name="rat15" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(-0.725605, 0, 0.354174, 0, 0.820932, 0, -0.383961, 0, -0.669313, -1.55175, -0.0330462, 3.8099)
+transform = Transform3D(-0.536392, 0, 0.261818, 0, 0.606861, 0, -0.283837, 0, -0.494779, -0.758846, -0.0330462, 3.13859)
 
 [node name="rat16" parent="rats" instance=ExtResource("2_w86ba")]
-transform = Transform3D(0.960944, 0, -0.276744, 0, 1, 0, 0.276744, 0, 0.960944, 1.59147, -4.76837e-07, -3.71969)
+transform = Transform3D(0.714501, 0, -0.20577, 0, 0.743541, 0, 0.20577, 0, 0.714501, 1.29447, -4.76837e-07, -3.01446)
 
 [editable path="bonfire"]

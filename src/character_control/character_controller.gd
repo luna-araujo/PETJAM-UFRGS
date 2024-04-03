@@ -1,24 +1,25 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const JOLT_FORCE = 0.75
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
+@export var JOLT_FORCE = 0.75
 const MOUSE_SEN = 0.25;
 const CAMERA_DIST = 3.0;
-const JOLT_COOLDOW = 0.5;
+@export var JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
-const VELOCITY_DAMP = 0.99;
-const MAX_VELOCITY = 50.0;
-const STAMINA_PASSIVE_DEP = -5.0;
-const STAMINA_JOLT_DEP = 10.0;
-const DRAG_COEF = 0.999;
-const WEIGHT = 3.0;
+@export var VELOCITY_DAMP = 0.99;
+@export var MAX_VELOCITY = 30.0;
+@export var STAMINA_PASSIVE_DEP = -5.0;
+@export var STAMINA_JOLT_DEP = 10.0;
+@export var DRAG_COEF = 1.0;
+@export var WEIGHT = 3.0;
 
 var yaw = 0.0;
 var pitch = 0.0;
 var player_front = Vector3(0.0,0.0,-1.0);
 var player_right;
 var player_up;
+var player_body_target;
 
 @export var coef := 50.0;
 
@@ -32,6 +33,8 @@ var current_stamina = 100.0
 var jolt_cooldown = 1.0
 
 @onready var collisionShape = $CollisionShape3D;
+@onready var anim_tree: AnimationTree = $pidgeon/AnimationTree;
+@onready var player_body = $pidgeon;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -41,6 +44,10 @@ func can_jolt():
 
 func process_grounded(delta):
 	
+	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
+		player_body_target = Vector3(velocity.x, 0.0, velocity.z).normalized();
+	else:
+		player_body_target = Vector3(player_front.x, 0.0, player_front.z).normalized();
 	#reset stamina because on ground
 	if(is_on_floor()):
 		current_stamina = move_toward(current_stamina, 100.0, 50.0 * delta * 10.0);
@@ -54,7 +61,7 @@ func process_grounded(delta):
 		if(!is_on_floor() and can_jolt()):
 			current_stamina -= STAMINA_JOLT_DEP;
 			jolt_cooldown = JOLT_COOLDOW;
-			velocity.y = -0.5;
+			#velocity.y = -0.5;
 			cur_force += (direction * 0.25 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 			grounded = false;
 		else:
@@ -76,6 +83,9 @@ func process_grounded(delta):
 	
 func process_flying(delta):
 	
+	if(velocity.normalized().dot(WORLD_UP) < 1.0):
+		player_body_target = velocity.normalized();
+	
 	var inertia = velocity.length() * WEIGHT;
 	
 	if(is_on_floor()):
@@ -91,32 +101,7 @@ func process_flying(delta):
 		current_stamina = move_toward(current_stamina, 0.0, STAMINA_JOLT_DEP);
 		jolt_cooldown = JOLT_COOLDOW;
 		cur_force += (direction * 0.5 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
-	
-	#var cospitch = cos(PI/180 * pitch);
-	#var sinpitch = sin(PI/180 * pitch);
-	#var hvel = sqrt(velocity.x**2 + velocity.z**2);
-	#
-	#velocity.y += -gravity *  delta;
-	#
-	#if(velocity.y < 0.0):
-		#var yacc = -velocity.y * delta * cospitch * cospitch;
-		#velocity.y += yacc;
-		#velocity.x += yacc * player_front.x / cospitch;
-		#velocity.z += yacc * player_front.z / cospitch;
-	#
-	#if(pitch > 0):
-		#var yacc = hvel * delta * sinpitch;
-		#velocity.y += yacc  * 5 ;
-		#velocity.x -= yacc * player_front.x / cospitch;
-		#velocity.z -= yacc * player_front.z / cospitch;
-		#
-	#if(cospitch > 0):
-		#velocity.x += (player_front.x / cospitch * hvel - velocity.x) * 0.1;
-		#velocity.z += (player_front.z / cospitch * hvel - velocity.z) * 0.1;
-	#
-	#print_debug(hvel, " ", velocity.y, " ");
-	
-	
+
 	velocity.y += -gravity * delta;
 
 	var acc = (velocity.length() * player_front - velocity) * inertia * delta;
@@ -125,8 +110,7 @@ func process_flying(delta):
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_front, Color("#ff6600"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_right, Color("#0066ff"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_up, Color("#00ff66"));
-	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + acc, Color("#00ff66"));
-	
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + acc, Color("#00ff66"));
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
@@ -142,14 +126,22 @@ func _process(delta):
 		sin(PI * yaw / 180) * cos(PI * pitch / 180)
 	).normalized();
 	$".".look_at(Vector3(global_position + player_front));
+	
 	player_right = player_front.cross(WORLD_UP).normalized();
 	player_up = player_right.cross(player_front).normalized();
+	
+	var player_body_cur = -player_body.get_global_transform().basis.z;
+	var off = (player_body_target - player_body_cur) * 10.0 * delta;
+	
+	player_body.look_at(player_body.global_position + player_body_cur + off, WORLD_UP);
 	
 	if(grounded):
 		process_grounded(delta);
 	else:
 		process_flying(delta);
-	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
+	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
+	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_target, Color("#6600FF"));
 	
 	velocity += cur_force;
 	cur_force *= damp_amt;
@@ -160,12 +152,20 @@ func _process(delta):
 	#print_debug((PI/180 * pitch));
 
 	move_and_slide()
+	process_animations()
 
 func  _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+	player_body_target = Vector3(0.0,0.0,-1.0);
 	
 func _input(event):
 	if event is InputEventMouseMotion:
 		yaw += event.relative.x * MOUSE_SEN;
 		pitch += -event.relative.y * MOUSE_SEN;
 		pitch = clamp(pitch, -89, 89);
+		
+func process_animations():
+	anim_tree["parameters/StateMachine/conditions/flap"] = jolt_cooldown > 0;
+	anim_tree["parameters/StateMachine/conditions/flying"] = !grounded;
+	anim_tree["parameters/StateMachine/conditions/idling"] = grounded && velocity.length() <= 0.01;
+	anim_tree["parameters/StateMachine/conditions/walking"] = grounded && velocity.length() > 0.01;

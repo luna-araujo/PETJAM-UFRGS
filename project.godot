@@ -8,12 +8,22 @@
 
 config_version=5
 
+show_default_buttons=false
+
 [application]
 
 config/name="PETJAM-UFRGS"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/buildings_test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://data/icons/icon.svg"
+
+[display]
+
+window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tool_button/plugin.cfg")
 
 [input]
 

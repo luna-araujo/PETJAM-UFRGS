@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuildingPreset" load_steps=8 format=3 uid="uid://b6x0gseqnadqu"]
+
+[ext_resource type="ArrayMesh" uid="uid://bud38msp5dpn0" path="res://data/models/buildings/building_4.obj" id="1_ncyr6"]
+[ext_resource type="Script" path="res://src/resources/building_preset.gd" id="2_2bwec"]
+[ext_resource type="Material" uid="uid://cxw5wuik7dpob" path="res://resources/materials/leaves.tres" id="3_jeyay"]
+[ext_resource type="ArrayMesh" uid="uid://bnxfqw47vpu77" path="res://data/models/buildings/vegetation/building_4_veg_1.obj" id="4_fmrhu"]
+[ext_resource type="ArrayMesh" uid="uid://bmjug16wgxvdt" path="res://data/models/buildings/vegetation/building_4_veg_2.obj" id="5_0ck66"]
+[ext_resource type="Material" uid="uid://fpy6lh1wqtrb" path="res://resources/materials/concrete.tres" id="5_mexo2"]
+[ext_resource type="Material" uid="uid://chmms72swuovq" path="res://resources/materials/building_window.tres" id="6_whcsd"]
+
+[resource]
+script = ExtResource("2_2bwec")
+building_mesh = ExtResource("1_ncyr6")
+vegetation_meshes = Array[Mesh]([ExtResource("4_fmrhu"), ExtResource("5_0ck66")])
+walls_material = ExtResource("5_mexo2")
+windows_material = ExtResource("6_whcsd")
+vegetation_material = ExtResource("3_jeyay")
