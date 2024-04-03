@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://uaduiwfigpm3"
+path="res://.godot/imported/building_2_veg_3.obj-e48a85b421693f582b516b399b3f1092.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_2_veg_3.obj-e48a85b421693f582b516b399b3f1092.mesh"]
+
+source_file="res://data/models/buildings/vegetation/building_2_veg_3.obj"
+dest_files=["res://.godot/imported/building_2_veg_3.obj-e48a85b421693f582b516b399b3f1092.mesh", "res://.godot/imported/building_2_veg_3.obj-e48a85b421693f582b516b399b3f1092.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
