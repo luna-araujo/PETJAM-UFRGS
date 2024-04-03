@@ -33,7 +33,7 @@ var current_stamina = 100.0
 var jolt_cooldown = 1.0
 
 @onready var collisionShape = $CollisionShape3D;
-@onready var animator = $pidgeon/AnimationPlayer;
+@onready var anim_tree: AnimationTree = $pidgeon/AnimationTree;
 @onready var player_body = $pidgeon;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -62,8 +62,6 @@ func process_grounded(delta):
 			current_stamina -= STAMINA_JOLT_DEP;
 			jolt_cooldown = JOLT_COOLDOW;
 			#velocity.y = -0.5;
-			animator.stop();
-			animator.play("flap");
 			cur_force += (direction * 0.25 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 			grounded = false;
 		else:
@@ -77,7 +75,6 @@ func process_grounded(delta):
 		velocity.y -= gravity * delta
 	
 	if direction:
-		animator.play("walk");
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
@@ -85,8 +82,6 @@ func process_grounded(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 func process_flying(delta):
-	if(!animator.is_playing()):
-		animator.play("fly");
 	
 	if(velocity.normalized().dot(WORLD_UP) < 1.0):
 		player_body_target = velocity.normalized();
@@ -94,7 +89,6 @@ func process_flying(delta):
 	var inertia = velocity.length() * WEIGHT;
 	
 	if(is_on_floor()):
-		animator.play("RESET");
 		grounded = true;
 		return;
 	if(current_stamina - 0.0000001 <= 0.0):
@@ -106,8 +100,6 @@ func process_flying(delta):
 	if(Input.is_action_just_pressed("player_up") and can_jolt()):
 		current_stamina = move_toward(current_stamina, 0.0, STAMINA_JOLT_DEP);
 		jolt_cooldown = JOLT_COOLDOW;
-		animator.stop();
-		animator.play("flap");
 		cur_force += (direction * 0.5 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 
 	velocity.y += -gravity * delta;
@@ -160,10 +152,10 @@ func _process(delta):
 	#print_debug((PI/180 * pitch));
 
 	move_and_slide()
+	process_animations()
 
 func  _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
-	animator.play("RESET");
 	player_body_target = Vector3(0.0,0.0,-1.0);
 	
 func _input(event):
@@ -171,3 +163,9 @@ func _input(event):
 		yaw += event.relative.x * MOUSE_SEN;
 		pitch += -event.relative.y * MOUSE_SEN;
 		pitch = clamp(pitch, -89, 89);
+		
+func process_animations():
+	anim_tree["parameters/StateMachine/conditions/flap"] = jolt_cooldown > 0;
+	anim_tree["parameters/StateMachine/conditions/flying"] = !grounded;
+	anim_tree["parameters/StateMachine/conditions/idling"] = grounded && velocity.length() <= 0.01;
+	anim_tree["parameters/StateMachine/conditions/walking"] = grounded && velocity.length() > 0.01;
