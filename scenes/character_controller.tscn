@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl1i5sdlyg2ap"]
+[gd_scene load_steps=7 format=3 uid="uid://bl1i5sdlyg2ap"]
 
 [ext_resource type="Script" path="res://src/character_control/character_controller.gd" id="1_ign4w"]
 [ext_resource type="PackedScene" uid="uid://2l7wqwga4v1k" path="res://scenes/character/pidgeon.tscn" id="2_if5av"]
 [ext_resource type="Script" path="res://scenes/StaminaBarController.gd" id="3_b6mk4"]
 [ext_resource type="PackedScene" uid="uid://cqw7msc16yh2k" path="res://scenes/ui/stamina_indicator.tscn" id="4_84q0i"]
+[ext_resource type="Script" path="res://scenes/velocityIndicator.gd" id="5_ma7fi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
 
@@ -32,3 +33,18 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_b6mk4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = -25.0
+offset_right = 248.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_active = false
+script = ExtResource("5_ma7fi")

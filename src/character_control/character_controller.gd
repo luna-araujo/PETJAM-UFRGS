@@ -102,8 +102,10 @@ func process_flying(delta):
 	if(Input.is_action_just_pressed("player_up") and can_jolt()):
 		current_stamina = move_toward(current_stamina, 0.0, STAMINA_JOLT_DEP);
 		jolt_cooldown = JOLT_COOLDOW;
-		cur_force += (direction * 0.5 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
-
+		if(Vector2(velocity.x, velocity.z).length() > 20.0):
+			cur_force += WORLD_UP * JOLT_FORCE;
+		else:
+			cur_force += (direction * 0.5 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 	velocity.y += -gravity * delta;
 
 	var acc = (velocity.length() * player_front - velocity) * inertia * delta;
@@ -122,6 +124,7 @@ func process_flying(delta):
 		velocity = velocity.normalized() * MAX_VELOCITY;
 
 func _process(delta):
+	var last_pf = player_front;
 	player_front = Vector3(
 		cos(PI * yaw / 180) * cos(PI * pitch / 180),
 		sin(PI * pitch / 180),
@@ -135,7 +138,14 @@ func _process(delta):
 	var player_body_cur = -player_body.get_global_transform().basis.z;
 	var off = (player_body_target - player_body_cur) * 10.0 * delta;
 	
-	player_body.look_at(player_body.global_position + player_body_cur + off, WORLD_UP);
+	#var turn_amt = player_front_hor.dot(player_front_hor) * 0.5 + 0.5;
+	
+	var horz_variation = Vector3((player_front - player_body_cur).x, 0.0, (player_front - player_body_cur).z);
+	
+	var up = WORLD_UP;
+	up = WORLD_UP + horz_variation * 5.0 * (1.0-abs((player_front).dot(WORLD_UP)));
+	
+	player_body.look_at(player_body.global_position + player_body_cur + off, up.normalized());
 	
 	if(grounded):
 		process_grounded(delta);
@@ -143,7 +153,8 @@ func _process(delta):
 		process_flying(delta);
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
 	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
-	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_target, Color("#6600FF"));
+	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_front, Color("#6600FF"));
+	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + up.normalized(), Color("#00FF66"));
 	
 	velocity += cur_force;
 	cur_force *= damp_amt;
