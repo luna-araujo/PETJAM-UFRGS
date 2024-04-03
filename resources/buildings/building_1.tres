@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/resources/building_preset.gd" id="1_q4t73"]
 [ext_resource type="Material" uid="uid://cxw5wuik7dpob" path="res://resources/materials/leaves.tres" id="3_072gr"]
 [ext_resource type="ArrayMesh" uid="uid://ddf8ioo8ny1ec" path="res://data/models/buildings/vegetation/building_1_veg.obj" id="3_uhv7h"]
-[ext_resource type="ArrayMesh" uid="uid://ney0n4vjbho0" path="res://data/models/buildings/vegetation/building_1_veg_2.mtl.obj" id="4_n40cr"]
+[ext_resource type="ArrayMesh" uid="uid://dl0ycvjff27q8" path="res://data/models/buildings/vegetation/building_1_veg_2.obj" id="5_kxxgd"]
 [ext_resource type="Material" uid="uid://fpy6lh1wqtrb" path="res://resources/materials/concrete.tres" id="6_g7r4q"]
 [ext_resource type="ArrayMesh" uid="uid://ccrm2jgoscbet" path="res://data/models/buildings/vegetation/building_1_veg_3.obj" id="6_svok0"]
 [ext_resource type="Material" uid="uid://chmms72swuovq" path="res://resources/materials/building_window.tres" id="7_v3qot"]
@@ -12,7 +12,7 @@
 [resource]
 script = ExtResource("1_q4t73")
 building_mesh = ExtResource("1_2htlk")
-vegetation_meshes = Array[Mesh]([ExtResource("3_uhv7h"), ExtResource("4_n40cr"), ExtResource("6_svok0")])
+vegetation_meshes = Array[Mesh]([ExtResource("3_uhv7h"), ExtResource("5_kxxgd"), ExtResource("6_svok0")])
 walls_material = ExtResource("6_g7r4q")
 windows_material = ExtResource("7_v3qot")
 vegetation_material = ExtResource("3_072gr")

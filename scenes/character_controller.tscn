@@ -16,6 +16,9 @@ shape = SubResource("SphereShape3D_h0wee")
 
 [node name="pidgeon" parent="." instance=ExtResource("2_if5av")]
 
+[node name="Skeleton3D" parent="pidgeon/Armature" index="0"]
+bones/5/rotation = Quaternion(0.969648, 0.242913, 0.00981713, 0.0260765)
+
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.89512, 4.03044)
 
