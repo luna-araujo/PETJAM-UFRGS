@@ -179,6 +179,7 @@ func _input(event):
 		
 func process_animations():
 	anim_tree["parameters/StateMachine/conditions/flap"] = jolt_cooldown > 0;
+	anim_tree["parameters/StateMachine/conditions/no_flap"] = jolt_cooldown <= 0;
 	anim_tree["parameters/StateMachine/conditions/flying"] = !grounded;
 	anim_tree["parameters/StateMachine/conditions/idling"] = grounded && velocity.length() <= 0.01;
 	anim_tree["parameters/StateMachine/conditions/walking"] = grounded && velocity.length() > 0.01;

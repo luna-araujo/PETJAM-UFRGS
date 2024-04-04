@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c5wxlmcxn1150"]
+
+[ext_resource type="Texture2D" uid="uid://ci6khsggqq2iv" path="res://data/textures/bars.png" id="1_7ntgs"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 0.3
+cull_mode = 2
+albedo_texture = ExtResource("1_7ntgs")
+metallic_specular = 0.0
+texture_filter = 2
