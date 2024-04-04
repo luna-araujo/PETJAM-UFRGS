@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://2l7wqwga4v1k" path="res://scenes/character/pidgeon.tscn" id="2_if5av"]
 [ext_resource type="Script" path="res://scenes/StaminaBarController.gd" id="3_b6mk4"]
 [ext_resource type="PackedScene" uid="uid://cqw7msc16yh2k" path="res://scenes/ui/stamina_indicator.tscn" id="4_84q0i"]
-[ext_resource type="Script" path="res://scenes/velocityIndicator.gd" id="5_ma7fi"]
+[ext_resource type="Script" path="res://src/ui/velocityIndicator.gd" id="5_ma7fi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
 
