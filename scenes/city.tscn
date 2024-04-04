@@ -183,6 +183,7 @@ size = Vector3(77.9091, 165.097, 42.911)
 
 [node name="character_controller" parent="." instance=ExtResource("1_i58be")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -547.913, 455.067, -235.658)
+MAX_VELOCITY = 100.0
 
 [node name="RatCompound" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15563, 110.26, 2.17903)

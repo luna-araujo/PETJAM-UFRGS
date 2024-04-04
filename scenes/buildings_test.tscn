@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi2uqwfymrjrw"]
+[gd_scene load_steps=23 format=3 uid="uid://bi2uqwfymrjrw"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_oucvp"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="2_1ailv"]
-[ext_resource type="ArrayMesh" uid="uid://3wbvojwad4kq" path="res://data/models/buildings/building_1.obj" id="3_aaa6i"]
 [ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_sb2ek"]
 [ext_resource type="ArrayMesh" uid="uid://ddf8ioo8ny1ec" path="res://data/models/buildings/vegetation/building_1_veg.obj" id="4_e2rg0"]
 [ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/Building3.tscn" id="4_gawro"]
@@ -80,81 +79,75 @@ mesh = SubResource("PlaneMesh_bln22")
 skeleton = NodePath("../..")
 
 [node name="Building1" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26, 0, -37)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52, 0, -74)
 vegetation_mesh = ExtResource("6_gtffy")
 
 [node name="Building13" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -68, -5, -24)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -136, -10, -48)
 vegetation_mesh = ExtResource("6_gtffy")
 
 [node name="Building11" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35, 0, -103)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -70, 0, -206)
 vegetation_mesh = ExtResource("6_gtffy")
 
 [node name="Building4" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 20, -4, -37)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 40, -8, -74)
 vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building7" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 55, 13.4082, -20)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 110, 26.8164, -40)
 vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building8" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61, 6.40816, 7)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 122, 12.8163, 14)
 vegetation_mesh = ExtResource("4_e2rg0")
 
 [node name="Building6" parent="env" instance=ExtResource("2_1ailv")]
-transform = Transform3D(0.98821, -0.124912, -0.0885358, 0.140061, 0.971107, 0.193219, 0.0618424, -0.203341, 0.977153, -12.9433, -18.2221, -72.1974)
-building_mesh = ExtResource("3_aaa6i")
+transform = Transform3D(0.98821, -0.124912, -0.0885358, 0.140061, 0.971107, 0.193219, 0.0618424, -0.203341, 0.977153, -25.8866, -36.4442, -144.395)
 vegetation_mesh = ExtResource("6_gtffy")
 
 [node name="Building2" parent="env" instance=ExtResource("3_sb2ek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8857, 0, 2.533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7714, 0, 5.066)
 building_mesh = ExtResource("7_mo0as")
 vegetation_mesh = ExtResource("8_t6bvc")
 
 [node name="Building5" parent="env" instance=ExtResource("3_sb2ek")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 25.1143, -16, 31.533)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 50.2286, -32, 63.066)
 building_mesh = ExtResource("7_mo0as")
 vegetation_mesh = ExtResource("9_tlcau")
 
 [node name="Building9" parent="env" instance=ExtResource("3_sb2ek")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 101.114, 15, -8.467)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 202.228, 30, -16.934)
 building_mesh = ExtResource("7_mo0as")
 vegetation_mesh = ExtResource("11_7ld7j")
 
 [node name="Building10" parent="env" instance=ExtResource("3_sb2ek")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.114304, -15, -120.467)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.228608, -30, -240.934)
 building_mesh = ExtResource("7_mo0as")
 vegetation_mesh = ExtResource("8_t6bvc")
 
 [node name="Building12" parent="env" instance=ExtResource("3_sb2ek")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -76.8857, -34, -85.467)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -153.771, -68, -170.934)
 building_mesh = ExtResource("7_mo0as")
 vegetation_mesh = ExtResource("11_7ld7j")
 
 [node name="Building14" parent="env" instance=ExtResource("11_f3pqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.213, 0, -59.0395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.426, 0, -118.079)
 vegetation_mesh = ExtResource("12_k5p4d")
 
 [node name="Building15" parent="env" instance=ExtResource("11_f3pqp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69.213, -4, 53.9605)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 138.426, -8, 107.921)
 vegetation_mesh = ExtResource("12_k5p4d")
 
 [node name="Building3" parent="env" instance=ExtResource("4_gawro")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.328, 0, -8.51882)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60.656, 0, -17.0376)
 building_mesh = ExtResource("11_gv02o")
 vegetation_mesh = ExtResource("12_nmcq4")
 
 [node name="RatCompound" parent="env/Building3" instance=ExtResource("5_jw84n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.55419, 24.9997, -3.0348)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.55419, 49.9997, -3.0348)
 
 [node name="character_controller" parent="." instance=ExtResource("5_xo5kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.624, 106.218, -3.26938)
+MAX_VELOCITY = 100.0
 WEIGHT = 0.5

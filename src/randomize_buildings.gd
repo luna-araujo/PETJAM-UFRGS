@@ -3,7 +3,7 @@ extends Node
 
 func _get_tool_buttons() -> Array:
 	return [
-		{call=_randomize, text="Randomize buildings", tint=Color.RED}
+		{call=_randomize, text="Randomize buildings", tint=Color.RED},
 	]
 
 func _randomize():
