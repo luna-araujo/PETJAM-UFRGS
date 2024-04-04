@@ -4,7 +4,6 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 4.5
 @export var JOLT_FORCE = 0.75
 const MOUSE_SEN = 0.25;
-const CAMERA_DIST = 3.0;
 @export var JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
 @export var VELOCITY_DAMP = 1.00;
@@ -124,7 +123,6 @@ func process_flying(delta):
 		velocity = velocity.normalized() * MAX_VELOCITY;
 
 func _process(delta):
-	var last_pf = player_front;
 	player_front = Vector3(
 		cos(PI * yaw / 180) * cos(PI * pitch / 180),
 		sin(PI * pitch / 180),
