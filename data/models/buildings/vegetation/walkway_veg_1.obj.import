@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dae13nb62q7nm"
+path="res://.godot/imported/walkway_veg_1.obj-064e2d6bce604b8cc8096133665224b1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/walkway_veg_1.obj-064e2d6bce604b8cc8096133665224b1.mesh"]
+
+source_file="res://data/models/buildings/vegetation/walkway_veg_1.obj"
+dest_files=["res://.godot/imported/walkway_veg_1.obj-064e2d6bce604b8cc8096133665224b1.mesh", "res://.godot/imported/walkway_veg_1.obj-064e2d6bce604b8cc8096133665224b1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
