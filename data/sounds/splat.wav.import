@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://co8bdptyg6m7d"
-path="res://.godot/imported/fly_wind.wav-0c86bbc07a0dbc28eda92d097131d463.sample"
+uid="uid://cfcgooawsj8xr"
+path="res://.godot/imported/splat.wav-7a1b5bf960fef120cc3029f1f302a1b4.sample"
 
 [deps]
 
-source_file="res://data/sounds/fly_wind.wav"
-dest_files=["res://.godot/imported/fly_wind.wav-0c86bbc07a0dbc28eda92d097131d463.sample"]
+source_file="res://data/sounds/splat.wav"
+dest_files=["res://.godot/imported/splat.wav-7a1b5bf960fef120cc3029f1f302a1b4.sample"]
 
 [params]
 

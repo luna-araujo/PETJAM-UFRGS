@@ -109,11 +109,11 @@ radius = 1.55095
 [node name="bonfire" instance=ExtResource("1_etlk3")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(-0.677917, -0.677916, -0.20107, 0.20107)
+bones/0/rotation = Quaternion(-4.30841e-08, -1.0301e-08, -0.707107, 0.707107)
 bones/1/rotation = Quaternion(4.2392e-08, 1.12071e-08, 0.70245, 0.711733)
 
 [node name="rat" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.0663294, 0.000870747, 2.47187e-08, 0.000729912, -0.0556028, 0.0361682, 0.000474779, -0.0361651, -0.0556076, 0.144997, 1.40608, 0.0156216)
+transform = Transform3D(0.0663293, 0.00087079, 1.17002e-10, -0.00087079, 0.0663293, -7.67386e-13, -1.17002e-10, -7.68718e-13, 0.0663351, 0.144997, 1.35341, 1.74755e-07)
 
 [node name="AnimationPlayer" parent="." index="5"]
 autoplay = "Spin"

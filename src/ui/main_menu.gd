@@ -1,5 +1,5 @@
 class_name MainMenu
-extends Control
+extends Node
 
 @export var game_scene:PackedScene
 

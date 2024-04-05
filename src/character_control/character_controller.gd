@@ -41,6 +41,9 @@ var last_velocity: Vector3 = Vector3.ZERO;
 @onready var player_body = $pidgeon;
 
 signal died;
+signal flap;
+signal water_hit;
+signal solid_hit;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -53,8 +56,6 @@ func process_grounded(delta):
 	last_grounded_cooldow -= delta; 
 	if(last_grounded_cooldow <= 0.0):
 		last_grounded_cooldow = 1.0;
-		#print_debug("poop");
-		#print_debug(last_player_grounded_position);
 		last_player_grounded_position = position;
 	
 	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
@@ -74,6 +75,7 @@ func process_grounded(delta):
 	if Input.is_action_just_pressed("player_up") and grounded:
 		if(!is_on_floor() and can_jolt()):
 			#current_stamina -= STAMINA_JOLT_DEP;
+			flap.emit()
 			jolt_cooldown = JOLT_COOLDOW;
 			#velocity.y = -0.5;
 			cur_force += (direction * 0.25 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
@@ -118,6 +120,7 @@ func process_flying(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
 	
 	if(Input.is_action_just_pressed("player_up") and can_jolt()):
+		flap.emit()
 		current_stamina = move_toward(current_stamina, 0.0, STAMINA_JOLT_DEP);
 		jolt_cooldown = JOLT_COOLDOW;
 		if(Vector2(velocity.x, velocity.z).length() > 20.0):
@@ -213,6 +216,7 @@ func process_animations():
 func process_death():
 	if (position.y < -0.25):
 		died.emit(last_player_grounded_position);
+		water_hit.emit()
 		return;
 	var col = get_last_slide_collision();
 	if col:
@@ -223,6 +227,9 @@ func process_death():
 				var dot = col.get_normal().dot(-last_velocity.normalized());
 				if (dot * last_velocity.length()) > 20:
 					died.emit(last_player_grounded_position);
+					solid_hit.emit()
+			elif root.is_in_group("obstacle"):
+				died.emit(last_player_grounded_position);
 				
 	
 
@@ -231,8 +238,6 @@ func entered_death_zone(body: Node3D):
 	died.emit(last_player_grounded_position);
 
 func _on_died(last_grounded: Vector3):
-	#implement death
 	grounded = true;
 	velocity *= 0.0;
 	position = last_player_grounded_position;
-	#get_tree().quit();
