@@ -92,8 +92,10 @@ func process_flying(delta):
 	if(is_on_floor()):
 		grounded = true;
 		return;
-	if(current_stamina - 0.0000001 <= 0.0):
-		inertia = 0.0;
+	if(current_stamina <= 0.0000001):
+		current_stamina = 0.0;
+	else:
+		current_stamina = clamp(current_stamina - STAMINA_PASSIVE_DEP * delta, 0.0, 100.0);
 		
 	var input_dir = Input.get_vector("player_left", "player_right", "player_forward", "player_backwards");
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
@@ -117,7 +119,6 @@ func process_flying(delta):
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
-	current_stamina = clamp(current_stamina - STAMINA_PASSIVE_DEP * delta, 0.0, 100.0);
 	velocity *= DRAG_COEF
 	if(velocity.length() > MAX_VELOCITY):
 		velocity = velocity.normalized() * MAX_VELOCITY;
@@ -141,7 +142,8 @@ func _process(delta):
 	var horz_variation = Vector3((player_front - player_body_cur).x, 0.0, (player_front - player_body_cur).z);
 	
 	var up = WORLD_UP;
-	up = WORLD_UP + horz_variation * 5.0 * (1.0-abs((player_front).dot(WORLD_UP)));
+	if(!grounded):
+		up = WORLD_UP + horz_variation * 5.0 * (1.0-abs((player_front).dot(WORLD_UP)));
 	
 	player_body.look_at(player_body.global_position + player_body_cur + off, up.normalized());
 	

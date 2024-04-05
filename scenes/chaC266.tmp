@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl1i5sdlyg2ap"]
+
+[ext_resource type="Script" path="res://src/character_control/character_controller.gd" id="1_ign4w"]
+[ext_resource type="PackedScene" uid="uid://2l7wqwga4v1k" path="res://scenes/character/pidgeon.tscn" id="2_if5av"]
+[ext_resource type="Script" path="res://scenes/StaminaBarController.gd" id="3_b6mk4"]
+[ext_resource type="Script" path="res://src/character_control/character_camera.gd" id="3_m6e8c"]
+[ext_resource type="PackedScene" uid="uid://cqw7msc16yh2k" path="res://scenes/ui/stamina_indicator.tscn" id="4_84q0i"]
+[ext_resource type="Script" path="res://src/ui/velocityIndicator.gd" id="5_ma7fi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4tihx"]
+radius = 0.1
+
+[node name="character_controller" type="CharacterBody3D"]
+script = ExtResource("1_ign4w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_h0wee")
+
+[node name="pidgeon" parent="." instance=ExtResource("2_if5av")]
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2, 4)
+script = ExtResource("3_m6e8c")
+
+[node name="StaminaIndicator" parent="." instance=ExtResource("4_84q0i")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -414.0
+offset_top = -73.0
+offset_right = -286.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_b6mk4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 95.0
+offset_top = -25.0
+offset_right = 248.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_active = false
+script = ExtResource("5_ma7fi")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878641, -0.083561)
+enabled = false
+shape = SubResource("SphereShape3D_4tihx")
+target_position = Vector3(0, 0, 0)
