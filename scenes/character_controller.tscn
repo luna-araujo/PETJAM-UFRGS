@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl1i5sdlyg2ap"]
+[gd_scene load_steps=11 format=3 uid="uid://bl1i5sdlyg2ap"]
 
 [ext_resource type="Script" path="res://src/character_control/character_controller.gd" id="1_ign4w"]
 [ext_resource type="PackedScene" uid="uid://2l7wqwga4v1k" path="res://scenes/character/pidgeon.tscn" id="2_if5av"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://src/character_control/character_camera.gd" id="3_m6e8c"]
 [ext_resource type="PackedScene" uid="uid://cqw7msc16yh2k" path="res://scenes/ui/stamina_indicator.tscn" id="4_84q0i"]
 [ext_resource type="Script" path="res://src/ui/velocityIndicator.gd" id="5_ma7fi"]
+[ext_resource type="AudioStream" uid="uid://csp8podyk6fh" path="res://data/sounds/flap_1.wav" id="7_epl0v"]
+[ext_resource type="Script" path="res://src/character_control/character_audio.gd" id="8_u1mel"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
 
@@ -61,5 +63,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878641, -0.083561)
 enabled = false
 shape = SubResource("SphereShape3D_4tihx")
 target_position = Vector3(0, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_epl0v")
+mix_target = 2
+
+[node name="CharacterAudio" type="Node" parent="."]
+script = ExtResource("8_u1mel")
 
 [connection signal="died" from="." to="." method="_on_died"]

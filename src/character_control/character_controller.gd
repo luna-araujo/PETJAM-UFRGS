@@ -57,12 +57,13 @@ func process_grounded(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("player_left", "player_right", "player_forward", "player_backwards")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = transform.basis * Vector3(input_dir.x, 0, input_dir.y);
+	direction = Vector3(direction.x, 0, direction.z).normalized();
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("player_up") and grounded:
 		if(!is_on_floor() and can_jolt()):
-			current_stamina -= STAMINA_JOLT_DEP;
+			#current_stamina -= STAMINA_JOLT_DEP;
 			jolt_cooldown = JOLT_COOLDOW;
 			#velocity.y = -0.5;
 			cur_force += (direction * 0.25 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
@@ -202,10 +203,10 @@ func process_death():
 			var body = col.get_collider() as StaticBody3D;
 			var root = body.owner;
 			if root.is_in_group("building"):
-				var dot = col.get_normal().dot(-last_velocity.normalized())
+				var dot = col.get_normal().dot(-last_velocity.normalized());
 				if (dot * last_velocity.length()) > 20:
 					died.emit(Vector3.ZERO);
 
 func _on_died(last_grounded: Vector3):
 	#implement death
-	get_tree().quit()
+	get_tree().quit();
