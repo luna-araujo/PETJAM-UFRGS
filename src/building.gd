@@ -9,6 +9,7 @@ class_name Building
 @export var vegetation_mesh: Mesh
 
 func _ready():
+	add_to_group("building")
 	update_meshes()
 
 func _get_tool_buttons() -> Array:

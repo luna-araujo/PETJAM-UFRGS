@@ -28,12 +28,15 @@ var cur_force = Vector3(0.0,0.0,0.0);
 var damp_amt = 0.9;
 var mass = 1.0;
 
-var current_stamina = 100.0
-var jolt_cooldown = 1.0
+var current_stamina = 100.0;
+var jolt_cooldown = 1.0;
+var last_velocity: Vector3 = Vector3.ZERO;
 
 @onready var collisionShape = $CollisionShape3D;
 @onready var anim_tree: AnimationTree = $pidgeon/AnimationTree;
 @onready var player_body = $pidgeon;
+
+signal died;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -165,6 +168,8 @@ func _process(delta):
 	#print_debug((PI/180 * pitch));
 
 	move_and_slide()
+	process_death()
+	last_velocity = velocity	
 	process_animations()
 
 func  _ready():
@@ -185,3 +190,21 @@ func process_animations():
 	anim_tree["parameters/StateMachine/conditions/walking"] = grounded && velocity.length() > 0.01;
 	var player_body_cur = -player_body.get_global_transform().basis.z;
 	anim_tree["parameters/StateMachine/fly/blend_position"] = player_body_cur.dot(-WORLD_UP);
+
+func process_death():
+	if (position.y < -0.25):
+		died.emit(Vector3.ZERO);
+		return;
+	var col = get_last_slide_collision();
+	if col:
+		if (last_velocity.length() > 20):
+			var body = col.get_collider() as StaticBody3D;
+			var root = body.owner;
+			if root.is_in_group("building"):
+				var dot = col.get_normal().dot(-last_velocity.normalized())
+				if (dot * last_velocity.length()) > 20:
+					died.emit(Vector3.ZERO);
+
+func _on_died(last_grounded: Vector3):
+	#implement death
+	get_tree().quit()

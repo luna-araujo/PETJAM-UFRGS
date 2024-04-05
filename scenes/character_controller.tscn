@@ -23,6 +23,7 @@ shape = SubResource("SphereShape3D_h0wee")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2, 4)
+current = true
 script = ExtResource("3_m6e8c")
 
 [node name="StaminaIndicator" parent="." instance=ExtResource("4_84q0i")]
@@ -59,3 +60,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878641, -0.083561)
 enabled = false
 shape = SubResource("SphereShape3D_4tihx")
 target_position = Vector3(0, 0, 0)
+
+[connection signal="died" from="." to="." method="_on_died"]

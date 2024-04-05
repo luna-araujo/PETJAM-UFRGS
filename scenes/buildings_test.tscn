@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://bi2uqwfymrjrw"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_oucvp"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/building_1.tscn" id="2_1ailv"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/building_2.tscn" id="3_sb2ek"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/building_3.tscn" id="4_gawro"]
+[ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="2_1ailv"]
+[ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/building_2.tscn" id="3_sb2ek"]
+[ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/building_3.tscn" id="4_gawro"]
 [ext_resource type="ArrayMesh" uid="uid://ccrm2jgoscbet" path="res://data/models/buildings/vegetation/building_1_veg_3.obj" id="4_lvo8j"]
 [ext_resource type="PackedScene" uid="uid://b41peahocqifl" path="res://scenes/rat_compound.tscn" id="5_jw84n"]
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="5_xo5kh"]
@@ -11,10 +11,10 @@
 [ext_resource type="ArrayMesh" uid="uid://cmgxkx0ixjmae" path="res://data/models/buildings/vegetation/building_2_veg_2.obj" id="8_t6bvc"]
 [ext_resource type="ArrayMesh" uid="uid://bmjug16wgxvdt" path="res://data/models/buildings/vegetation/building_4_veg_2.obj" id="9_l0l8m"]
 [ext_resource type="ArrayMesh" uid="uid://ds5en1xr62no2" path="res://data/models/buildings/vegetation/building_2_veg_1.obj" id="9_tlcau"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/building_4.tscn" id="11_f3pqp"]
+[ext_resource type="PackedScene" uid="uid://cc5yhdn2tydqa" path="res://scenes/buildings/building_4.tscn" id="11_f3pqp"]
 [ext_resource type="ArrayMesh" uid="uid://bgjtl5gqy2a5b" path="res://data/models/buildings/building_3.obj" id="11_gv02o"]
 [ext_resource type="ArrayMesh" uid="uid://dlgu81spgpsrl" path="res://data/models/buildings/vegetation/building_3_veg.obj" id="12_nmcq4"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/walkway.tscn" id="13_4u8ia"]
+[ext_resource type="PackedScene" uid="uid://iy7hyij7i7he" path="res://scenes/buildings/walkway.tscn" id="13_4u8ia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbt11"]
 sky_top_color = Color(0.25098, 0.466667, 0.654902, 1)
