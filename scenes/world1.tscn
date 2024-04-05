@@ -97,6 +97,14 @@ vegetation_mesh = ExtResource("15_cu8q3")
 transform = Transform3D(-0.27397, 0.394926, 0.876911, 0.821647, 0.569997, 4.8974e-08, -0.499837, 0.720511, -0.480652, -128.167, -16.706, 166.113)
 vegetation_mesh = ExtResource("15_cu8q3")
 
+[node name="Building7" parent="env" instance=ExtResource("2_sw458")]
+transform = Transform3D(-0.949344, 0, -0.314241, 0, 1, 0, 0.314241, 0, -0.949344, 1033.12, -27.022, -879.087)
+vegetation_mesh = ExtResource("3_wqlhd")
+
+[node name="Walkway5" parent="env" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.449085, 0, -0.89349, 0, 1, 0, 0.89349, 0, -0.449085, 1015.83, 21.0005, -845.498)
+vegetation_mesh = ExtResource("15_cu8q3")
+
 [node name="Walkway" parent="env" instance=ExtResource("14_0cs1r")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 95.5683, 12.2079, -26.4441)
 vegetation_mesh = ExtResource("15_cu8q3")
