@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://vx1u8l15ye6l"]
+
+[ext_resource type="ArrayMesh" uid="uid://b41shq8eff860" path="res://data/models/buildings/barbed_wire.obj" id="1_m8rbr"]
+[ext_resource type="Material" uid="uid://bhf7eggu8r30e" path="res://resources/materials/wire.tres" id="2_1u557"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fkc3r"]
+height = 13.5326
+radius = 1.45685
+
+[node name="BarbedWire" type="Node3D"]
+
+[node name="building" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_m8rbr")
+surface_material_override/0 = ExtResource("2_1u557")
+
+[node name="Area3D" type="Area3D" parent="." groups=["barbed_wire"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 1.31827, -6)
+shape = SubResource("CylinderShape3D_fkc3r")
