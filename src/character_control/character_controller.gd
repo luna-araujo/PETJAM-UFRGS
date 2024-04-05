@@ -63,7 +63,7 @@ func process_grounded(delta):
 			#velocity.y = -0.5;
 			cur_force += (direction * 0.25 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 			grounded = false;
-		else:
+		elif(is_on_floor()):
 			velocity.y = JUMP_VELOCITY
 	
 	# Handle ground state	
