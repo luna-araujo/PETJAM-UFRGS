@@ -16,6 +16,7 @@ script = ExtResource("1_ijvay")
 building_preset = ExtResource("2_ygt1l")
 
 [node name="building" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("1_yjlxb")
 surface_material_override/0 = ExtResource("2_500l8")
 surface_material_override/1 = ExtResource("3_ddffd")
@@ -27,5 +28,6 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_xtv8t")
 
 [node name="vegetation" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("4_uexs2")
 surface_material_override/0 = ExtResource("7_ca33k")

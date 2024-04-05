@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://caima0u1uggjw"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_qvhm7"]
-[ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="3_t2inb"]
+[ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/Building1.tscn" id="3_t2inb"]
 [ext_resource type="PackedScene" uid="uid://b41peahocqifl" path="res://scenes/rat_compound.tscn" id="4_rexi2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bd7py"]
@@ -20,6 +20,16 @@ sky = SubResource("Sky_abqd5")
 
 [node name="character_controller" parent="." instance=ExtResource("1_qvhm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08121, 13.8902, 0.641686)
+SPEED = null
+JUMP_VELOCITY = null
+JOLT_FORCE = null
+JOLT_COOLDOW = null
+VELOCITY_DAMP = null
+MAX_VELOCITY = null
+STAMINA_PASSIVE_DEP = null
+STAMINA_JOLT_DEP = null
+DRAG_COEF = null
+WEIGHT = null
 coef = 13.225
 
 [node name="env" type="Node3D" parent="."]

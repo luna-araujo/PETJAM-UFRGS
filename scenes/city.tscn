@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dekhamdcl8sjx"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_i58be"]
-[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
-[ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/Building2.tscn" id="3_8slnf"]
+[ext_resource type="PackedScene" uid="uid://b41peahocqifl" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/building_2.tscn" id="3_8slnf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ttfh"]
 
@@ -183,6 +183,7 @@ size = Vector3(77.9091, 165.097, 42.911)
 
 [node name="character_controller" parent="." instance=ExtResource("1_i58be")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -547.913, 455.067, -235.658)
+MAX_VELOCITY = 100.0
 
 [node name="RatCompound" parent="." instance=ExtResource("2_u8xxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15563, 110.26, 2.17903)

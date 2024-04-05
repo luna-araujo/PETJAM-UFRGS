@@ -8,6 +8,7 @@ class_name BuildingPreset
 @export_group("Material")
 @export var walls_material: Material
 @export var windows_material: Material
+@export var bars_material: Material
 @export var vegetation_material: Material
 
 func _init(

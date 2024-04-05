@@ -9,6 +9,7 @@ class_name Building
 @export var vegetation_mesh: Mesh
 
 func _ready():
+	add_to_group("building")
 	update_meshes()
 
 func _get_tool_buttons() -> Array:
@@ -32,6 +33,7 @@ func update_meshes():
 		building.get_child(0).get_child(0).hide()
 		building.set_surface_override_material(0, building_preset.walls_material)
 		building.set_surface_override_material(1, building_preset.windows_material)
+		building.set_surface_override_material(2, building_preset.bars_material)
 	if (vegetation_mesh != null):
 		var vegetation: MeshInstance3D = get_node("vegetation")
 		vegetation.mesh = vegetation_mesh

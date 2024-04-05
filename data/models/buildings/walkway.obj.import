@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dq0eltmo0j32w"
+path="res://.godot/imported/walkway.obj-a8a2d2f0d6cb2bf08857894dd15e9854.mesh"
+
+[deps]
+
+files=["res://.godot/imported/walkway.obj-a8a2d2f0d6cb2bf08857894dd15e9854.mesh"]
+
+source_file="res://data/models/buildings/walkway.obj"
+dest_files=["res://.godot/imported/walkway.obj-a8a2d2f0d6cb2bf08857894dd15e9854.mesh", "res://.godot/imported/walkway.obj-a8a2d2f0d6cb2bf08857894dd15e9854.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
