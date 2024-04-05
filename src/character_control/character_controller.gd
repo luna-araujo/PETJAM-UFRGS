@@ -8,11 +8,11 @@ const MOUSE_SEN = 0.25;
 @export var JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
 @export var VELOCITY_DAMP = 1.00;
-@export var MAX_VELOCITY = 30.0;
+@export var MAX_VELOCITY = 100.0;
 @export var STAMINA_PASSIVE_DEP = -5.0;
-@export var STAMINA_JOLT_DEP = 10.0;
-@export var DRAG_COEF = 1.0;
-@export var WEIGHT = 0.2;
+@export var STAMINA_JOLT_DEP = 33.3;
+@export var DRAG_COEF = 2.0;
+@export var WEIGHT = 0.5;
 
 var yaw = 0.0;
 var pitch = 0.0;

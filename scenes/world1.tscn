@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vjw5tneuoupl"]
+[gd_scene load_steps=20 format=3 uid="uid://vjw5tneuoupl"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_o5k32"]
 [ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="2_ldcnx"]
@@ -37,15 +37,6 @@ volumetric_fog_density = 0.003
 volumetric_fog_anisotropy = 0.9
 volumetric_fog_ambient_inject = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uevao"]
-albedo_color = Color(0.14902, 0.568627, 0.717647, 1)
-metallic = 0.76
-metallic_specular = 1.0
-roughness = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_gkck3"]
-size = Vector2(100000, 100000)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="Randomize Buildings" type="Node" parent="."]
@@ -63,57 +54,10 @@ shadow_enabled = true
 [node name="DeepOcean" parent="env" instance=ExtResource("2_ldcnx")]
 far_edge = 4000
 
-[node name="water_far" type="MeshInstance3D" parent="env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_uevao")
-mesh = SubResource("PlaneMesh_gkck3")
-skeleton = NodePath("../..")
-
-[node name="Building1" parent="env" instance=ExtResource("2_sw458")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6011, -35.8146, 0.0108795)
-vegetation_mesh = ExtResource("3_wqlhd")
-
-[node name="Walkway4" parent="env" instance=ExtResource("14_0cs1r")]
-transform = Transform3D(-0.0159777, 0.0163512, 0.999738, 0.998326, 0.0558315, 0.0150419, -0.0555709, 0.998306, -0.0172158, -262.525, 10.0695, 336.53)
-vegetation_mesh = ExtResource("15_cu8q3")
-
-[node name="Walkway3" parent="env" instance=ExtResource("14_0cs1r")]
-transform = Transform3D(-0.0275433, 0.998637, -0.0443239, 0.0275914, 0.0450833, 0.998602, 0.99924, 0.0262819, -0.0287956, -215.989, -4.4833, 246.502)
-
-[node name="Walkway2" parent="env" instance=ExtResource("14_0cs1r")]
-transform = Transform3D(-0.27397, 0.394926, 0.876911, 0.821647, 0.569997, 4.8974e-08, -0.499837, 0.720511, -0.480652, -128.167, -16.706, 166.113)
-vegetation_mesh = ExtResource("15_cu8q3")
-
-[node name="Building7" parent="env" instance=ExtResource("2_sw458")]
-transform = Transform3D(-0.949344, 0, -0.314241, 0, 1, 0, 0.314241, 0, -0.949344, 1033.12, -27.022, -879.087)
-vegetation_mesh = ExtResource("3_wqlhd")
-
-[node name="Walkway5" parent="env" instance=ExtResource("14_0cs1r")]
-transform = Transform3D(-0.449085, 0, -0.89349, 0, 1, 0, 0.89349, 0, -0.449085, 1015.83, 21.0005, -845.498)
-vegetation_mesh = ExtResource("15_cu8q3")
-
-[node name="Walkway" parent="env" instance=ExtResource("14_0cs1r")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 95.5683, 12.2079, -26.4441)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.163, 275.548, 289.628)
-use_collision = true
-size = Vector3(27.0127, 552.097, 29.3066)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="env"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.591, 280.027, 289.182)
-use_collision = true
-size = Vector3(41.1602, 201.409, 42.4951)
-
-[node name="Building5" parent="env" instance=ExtResource("5_5hplb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
-vegetation_mesh = ExtResource("8_bjufm")
-
-[node name="RatCompound" parent="env" instance=ExtResource("11_xyfwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -297.998, 20.8837, 477.054)
-
 [node name="challange1" type="Node" parent="env"]
+
+[node name="RatCompound" parent="env/challange1" instance=ExtResource("11_xyfwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -297.998, 20.8837, 477.054)
 
 [node name="Building6" parent="env/challange1" instance=ExtResource("10_nha1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.921, -29.1157, 483.977)
@@ -122,21 +66,19 @@ vegetation_mesh = ExtResource("12_3tk8y")
 
 [node name="Building4" parent="env/challange1" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.196, -199.541, 471.241)
-vegetation_mesh = ExtResource("8_bjufm")
 
 [node name="Building8" parent="env/challange1" instance=ExtResource("5_5hplb")]
 transform = Transform3D(0.949509, -0.26674, 0.165174, 0.303574, 0.91404, -0.269022, -0.0792165, 0.305581, 0.948865, -647.005, -190.171, 967.87)
-vegetation_mesh = ExtResource("13_1ighw")
 
 [node name="dense_group2" type="Node" parent="env/challange1"]
 
 [node name="Building15" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.953589, -0.0340385, 0.299181, -0.0243605, 0.981612, 0.189326, -0.300124, -0.187827, 0.935225, -215.059, -89.5045, 834.751)
-vegetation_mesh = ExtResource("15_my1n3")
+vegetation_mesh = ExtResource("3_wqlhd")
 
 [node name="Building11" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.952172, 0, 0.305562, 0, 1, 0, -0.305562, 0, 0.952172, -287.138, -68.2438, 797.788)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water5" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(0.953589, -0.0340385, 0.299181, -0.0243605, 0.981612, 0.189326, -0.300124, -0.187827, 0.935225, -217.555, -9.34698, 819.396)
@@ -153,14 +95,15 @@ transform = Transform3D(0.952172, 0, 0.305562, 0, 1, 0, -0.305562, 0, 0.952172, 
 
 [node name="Building17" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.952172, 0, 0.305562, 0, 1, 0, -0.305562, 0, 0.952172, -342.489, -89.894, 897.407)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="Building18" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(-0.769043, 0.0996443, -0.631383, 0.0334708, 0.992697, 0.115898, 0.63832, 0.0679979, -0.766762, -347.968, -60.1508, 733.288)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="Building10" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(-0.768541, 0, -0.639801, -0.071895, 0.993666, 0.0863616, 0.635749, 0.112371, -0.763673, -244.347, -73.8888, 739.265)
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water9" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(-0.769043, 0.0996443, -0.631383, 0.0334708, 0.992697, 0.115898, 0.63832, 0.0679979, -0.766762, -340.086, 20.9227, 738.964)
@@ -170,14 +113,14 @@ transform = Transform3D(-0.768541, 0, -0.639801, -0.071895, 0.993666, 0.0863616,
 
 [node name="Building19" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(-0.768541, 0, -0.639801, 0, 1, 0, 0.639801, 0, -0.768541, -299.121, -77.1042, 669.347)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water11" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(-0.768541, 0, -0.639801, 0, 1, 0, 0.639801, 0, -0.768541, -299.375, 4.5484, 669.471)
 
 [node name="Building20" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(-0.762949, -0.120414, -0.635146, -0.0925431, 0.992724, -0.077041, 0.639801, 0, -0.768541, -225.396, -64.508, 630.759)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water12" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(-0.762949, -0.120414, -0.635146, -0.0925431, 0.992724, -0.077041, 0.639801, 0, -0.768541, -235.482, 16.5199, 630.883)
@@ -187,10 +130,10 @@ transform = Transform3D(0.952172, 0, 0.305562, 0, 1, 0, -0.305562, 0, 0.952172, 
 
 [node name="Building12" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.535731, 0.0494182, -0.842942, 0.0421869, 0.995473, 0.0851724, 0.843335, -0.0811905, 0.53122, -679.092, -99.3536, 701.787)
+vegetation_mesh = ExtResource("3_wqlhd")
 
 [node name="Building9" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.53298, 0, -0.846128, 0, 1, 0, 0.846128, 0, 0.53298, -154.023, -77.5214, 741.862)
-vegetation_mesh = ExtResource("3_wqlhd")
 
 [node name="building1_water2" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(0.535731, 0.0494182, -0.842942, 0.0421869, 0.995473, 0.0851724, 0.843335, -0.0811905, 0.53122, -674.966, -18.0533, 695.426)
@@ -200,13 +143,13 @@ transform = Transform3D(0.53298, 0, -0.846128, 0, 1, 0, 0.846128, 0, 0.53298, -1
 
 [node name="Building13" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.997125, -0.0757793, 0, 0.0757793, 0.997125, 0, 0, 0, 1, -387.064, -68.756, 631.134)
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water3" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(0.997125, -0.0757793, 0, 0.0757793, 0.997125, 0, 0, 0, 1, -392.977, 12.6828, 631.202)
 
 [node name="Building14" parent="env/challange1/dense_group2" instance=ExtResource("2_sw458")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.729, -43.6584, 616.767)
-vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water4" parent="env/challange1/dense_group2" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -467.454, 37.9943, 616.835)
@@ -229,6 +172,7 @@ transform = Transform3D(0.248732, -0.0411956, 0.967696, 0.0102553, 0.999151, 0.0
 
 [node name="Building16" parent="env/challange1/dense_group" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.244714, 0.18354, 0.952065, -0.0456909, 0.983012, -0.177761, -0.968518, 0, 0.248943, -411.375, -114.393, 782.739)
+vegetation_mesh = ExtResource("3_wqlhd")
 
 [node name="building1_water7" parent="env/challange1/dense_group" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(0.244714, 0.18354, 0.952065, -0.0456909, 0.983012, -0.177761, -0.968518, 0, 0.248943, -396.257, -34.1517, 782.49)
@@ -241,6 +185,7 @@ transform = Transform3D(0.131193, 0.090789, -0.987191, -0.0630812, 0.994544, 0.0
 
 [node name="Building10" parent="env/challange1/dense_group" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.131737, 0, -0.991285, 0, 1, 0, 0.991285, 0, 0.131737, -514.724, -74.1377, 689.41)
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water9" parent="env/challange1/dense_group" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(0.131193, 0.090789, -0.987191, -0.0630812, 0.994544, 0.0830821, 0.989348, 0.0513734, 0.136204, -552.423, 15.6812, 756.157)
@@ -257,7 +202,7 @@ transform = Transform3D(0.136487, -0.0535511, -0.989194, -0.0846403, 0.994256, -
 
 [node name="Building20" parent="env/challange1/dense_group" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.131737, 0, -0.991285, 0, 1, 0, 0.991285, 0, 0.131737, -602.935, -95.7879, 617.259)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water12" parent="env/challange1/dense_group" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(0.131737, 0, -0.991285, 0, 1, 0, 0.991285, 0, 0.131737, -602.966, -14.1352, 617.541)
@@ -267,11 +212,11 @@ transform = Transform3D(0.248943, 0, 0.968518, 0.0891764, 0.995752, -0.0229215, 
 
 [node name="Building12" parent="env/challange1/dense_group" instance=ExtResource("2_sw458")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.23, -99.5297, 588.324)
-vegetation_mesh = ExtResource("15_my1n3")
+vegetation_mesh = ExtResource("3_wqlhd")
 
 [node name="Building9" parent="env/challange1/dense_group" instance=ExtResource("2_sw458")]
 transform = Transform3D(0.989709, -0.14229, -0.0151637, 0.143095, 0.984136, 0.104879, 0, -0.105969, 0.994369, -378.777, -76.8778, 543.156)
-vegetation_mesh = ExtResource("3_wqlhd")
+vegetation_mesh = ExtResource("15_my1n3")
 
 [node name="building1_water2" parent="env/challange1/dense_group" instance=ExtResource("12_0pxf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325.955, -17.877, 588.392)
@@ -283,15 +228,63 @@ transform = Transform3D(0.989709, -0.14229, -0.0151637, 0.143095, 0.984136, 0.10
 
 [node name="Building2" parent="env/challange3" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.116, -63.695, 295)
+vegetation_mesh = ExtResource("13_1ighw")
 
 [node name="challange2" type="Node" parent="env"]
 
 [node name="Building3" parent="env/challange2" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.292, -71.1538, 80.2447)
+vegetation_mesh = ExtResource("8_bjufm")
+
+[node name="centralChallange" type="Node3D" parent="env"]
+
+[node name="Building1" parent="env/centralChallange" instance=ExtResource("2_sw458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6011, -35.8146, 0.0108795)
+
+[node name="Walkway4" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.0159777, 0.0163512, 0.999738, 0.998326, 0.0558315, 0.0150419, -0.0555709, 0.998306, -0.0172158, -262.525, 10.0695, 336.53)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="Walkway8" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(0.999999, 1.52574e-09, 1.74832e-07, -1.52574e-09, 0.999999, -1.86265e-09, -1.74832e-07, -1.86265e-09, 0.999999, -146.864, 109.576, 329.676)
+
+[node name="Walkway7" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.999999, -1.52574e-09, -8.74094e-08, 0, 0.999847, -0.0174524, 8.74227e-08, -0.0174524, -0.999847, -108.108, 109.345, 330.126)
+
+[node name="Walkway6" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-4.37114e-08, -0.0174524, -0.999847, 0, 0.999847, -0.0174524, 1, -7.62869e-10, -4.37047e-08, -143.253, 77.0099, 342.391)
+
+[node name="Walkway3" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.0275433, 0.998637, -0.0443239, 0.0275914, 0.0450833, 0.998602, 0.99924, 0.0262819, -0.0287956, -215.989, -4.4833, 246.502)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="Walkway2" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.27397, 0.394926, 0.876911, 0.821647, 0.569997, 4.8974e-08, -0.499837, 0.720511, -0.480652, -128.167, -16.706, 166.113)
+
+[node name="Building7" parent="env/centralChallange" instance=ExtResource("2_sw458")]
+transform = Transform3D(-0.949344, 0, -0.314241, 0, 1, 0, 0.314241, 0, -0.949344, 1033.12, -27.022, -879.087)
+
+[node name="Walkway5" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.449085, 0, -0.89349, 0, 1, 0, 0.89349, 0, -0.449085, 1015.83, 21.0005, -845.498)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="Walkway" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 95.5683, 12.2079, -26.4441)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="env/centralChallange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.163, 275.548, 289.628)
+use_collision = true
+size = Vector3(27.0127, 552.097, 29.3066)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="env/centralChallange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.591, 280.027, 289.182)
+use_collision = true
+size = Vector3(41.1602, 201.409, 42.4951)
+
+[node name="Building5" parent="env/centralChallange" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
+vegetation_mesh = ExtResource("13_1ighw")
 
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -125.681, 563.75, 283.442)
-MAX_VELOCITY = 100.0
-STAMINA_JOLT_DEP = 30.0
-DRAG_COEF = 2.0
-WEIGHT = 0.5
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 67.199, 72.8241, -2.8168)
