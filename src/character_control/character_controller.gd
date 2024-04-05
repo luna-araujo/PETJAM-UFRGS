@@ -20,6 +20,9 @@ var player_front = Vector3(0.0,0.0,-1.0);
 var player_right;
 var player_up;
 var player_body_target;
+var last_player_grounded_position;
+
+var last_grounded_cooldow = 0.0;
 
 @export var coef := 50.0;
 
@@ -46,6 +49,13 @@ func can_jolt():
 	return jolt_cooldown - 0.000001 <= 0.0 and current_stamina - 0.000001 > 0.0
 
 func process_grounded(delta):
+	#print_debug(last_grounded_cooldow);
+	last_grounded_cooldow -= delta; 
+	if(last_grounded_cooldow <= 0.0):
+		last_grounded_cooldow = 1.0;
+		print_debug("poop");
+		print_debug(last_player_grounded_position);
+		last_player_grounded_position = position;
 	
 	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
 		player_body_target = Vector3(velocity.x, 0.0, velocity.z).normalized();
@@ -86,6 +96,8 @@ func process_grounded(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 func process_flying(delta):
+	
+	last_grounded_cooldow = 1.0;
 	
 	if(velocity.normalized().dot(WORLD_UP) < 1.0):
 		player_body_target = velocity.normalized();
@@ -157,9 +169,9 @@ func _process(delta):
 	else:
 		process_flying(delta);
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
-	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
-	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_front, Color("#6600FF"));
-	DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + up.normalized(), Color("#00FF66"));
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_front, Color("#6600FF"));
+	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + up.normalized(), Color("#00FF66"));
 	
 	velocity += cur_force;
 	cur_force *= damp_amt;
@@ -195,7 +207,7 @@ func process_animations():
 
 func process_death():
 	if (position.y < -0.25):
-		died.emit(Vector3.ZERO);
+		died.emit(last_player_grounded_position);
 		return;
 	var col = get_last_slide_collision();
 	if col:
@@ -205,8 +217,14 @@ func process_death():
 			if root.is_in_group("building"):
 				var dot = col.get_normal().dot(-last_velocity.normalized());
 				if (dot * last_velocity.length()) > 20:
-					died.emit(Vector3.ZERO);
+					died.emit(last_player_grounded_position);
+			elif root.is_in_group("obstacle"):
+				died.emit(last_player_grounded_position);
+				
 
 func _on_died(last_grounded: Vector3):
 	#implement death
-	get_tree().quit();
+	grounded = true;
+	velocity *= 0.0;
+	position = last_player_grounded_position;
+	#get_tree().quit();
