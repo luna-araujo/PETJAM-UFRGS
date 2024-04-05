@@ -2,11 +2,15 @@ class_name Sign
 extends Node3D
 
 @export_multiline var text: String = ""
+@export var no_mesh:bool = false
 @onready var label: Label3D = $"Label3D"
 @onready var area: Area3D = $"Area3D"
 var hidden: bool = true
 
 func _ready():
+	if no_mesh:
+		$"Visuals".queue_free()
+	
 	label.text = text
 	label.modulate = Color.TRANSPARENT
 	label.outline_modulate =  Color.TRANSPARENT
@@ -14,11 +18,11 @@ func _ready():
 
 func _process(delta):
 	if hidden:
-		label.modulate = lerp(label.modulate, Color.TRANSPARENT, 5 * delta)
-		label.outline_modulate = lerp(label.outline_modulate, Color.TRANSPARENT, 5 * delta)
+		label.modulate = lerp(label.modulate, Color.TRANSPARENT, 10 * delta)
+		label.outline_modulate = lerp(label.outline_modulate, Color.TRANSPARENT, 10 * delta)
 	else:
-		label.modulate = lerp(label.modulate, Color.WHITE, 5 * delta)
-		label.outline_modulate = lerp(label.outline_modulate, Color.BLACK, 5 * delta)
+		label.modulate = lerp(label.modulate, Color.WHITE, 10 * delta)
+		label.outline_modulate = lerp(label.outline_modulate, Color.BLACK, 10 * delta)
 	pass
 
 

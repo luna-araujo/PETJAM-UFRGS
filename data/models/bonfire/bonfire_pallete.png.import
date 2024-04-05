@@ -2,26 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ugi4tybhg55"
-path="res://.godot/imported/AmeliesZet.jpg-4a3c294f789d155abb39e08efd36b06b.ctex"
+uid="uid://bct3vnbs356da"
+path.s3tc="res://.godot/imported/bonfire_pallete.png-19440dd0ce7fff7d050ba55d48845907.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://data/fonts/amelies_zettelwirtschaft_ah/AmeliesZet.jpg"
-dest_files=["res://.godot/imported/AmeliesZet.jpg-4a3c294f789d155abb39e08efd36b06b.ctex"]
+source_file="res://data/models/bonfire/bonfire_pallete.png"
+dest_files=["res://.godot/imported/bonfire_pallete.png-19440dd0ce7fff7d050ba55d48845907.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

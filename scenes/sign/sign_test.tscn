@@ -1,21 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://x1rd4gtwfxki"]
+[gd_scene load_steps=3 format=3 uid="uid://x1rd4gtwfxki"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_niwd6"]
-[ext_resource type="Script" path="res://src/sign/sign.gd" id="2_802wg"]
-[ext_resource type="FontFile" uid="uid://xycmmobmrsqm" path="res://data/fonts/wortlaut_ah/wortl-r.ttf" id="3_nf10h"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5rt5"]
-albedo_color = Color(1, 1, 0.164706, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_akk0n"]
-material = SubResource("StandardMaterial3D_s5rt5")
-size = Vector3(1, 1, 0.2)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_w0y26"]
-radius = 2.1123
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_gmiwx"]
-height = 1.1533
+[ext_resource type="PackedScene" uid="uid://d0vfj71fheeah" path="res://scenes/sign/sign.tscn" id="2_ktdkq"]
 
 [node name="SignTest" type="Node3D"]
 
@@ -29,36 +15,7 @@ size = Vector3(25.877, 1.9, 44.8701)
 [node name="character_controller" parent="." instance=ExtResource("1_niwd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55655, -1.19209e-07, 1.1001)
 
-[node name="Sign" type="Node3D" parent="."]
-transform = Transform3D(-0.305961, 0, -0.952044, 0, 1, 0, 0.952044, 0, -0.305961, 7.79175, 0, 1.15451)
-script = ExtResource("2_802wg")
-text = "Hey Text goes here lol xd!! Lorem ipsum e os caralho kkkkkkkkk"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Sign"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.857961, 0)
-mesh = SubResource("BoxMesh_akk0n")
-
-[node name="Area3D" type="Area3D" parent="Sign"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/Area3D"]
-shape = SubResource("SphereShape3D_w0y26")
-
-[node name="Label3D" type="Label3D" parent="Sign"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69941, 0.203775)
-billboard = 1
-double_sided = false
-text = "Hey Text goes here lol xd!! Lorem ipsum e os caralho kkkkkkkkk"
-font = ExtResource("3_nf10h")
-autowrap_mode = 2
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Sign"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590984, 0)
-shape = SubResource("CylinderShape3D_gmiwx")
+[node name="Sign" parent="." instance=ExtResource("2_ktdkq")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.622337, 0.782749, 5.83194e-09, 0.13599, 0.108121, 0.984793, 0.770846, 0.612873, -0.173734, 0, 5.97261, 0)
-
-[connection signal="body_entered" from="Sign/Area3D" to="Sign" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Sign/Area3D" to="Sign" method="_on_area_3d_body_exited"]
