@@ -25,6 +25,8 @@ func _process(delta):
 		label.outline_modulate = lerp(label.outline_modulate, Color.BLACK, 10 * delta)
 	pass
 
+func update_text(text: String):
+	label.text = text
 
 func _on_area_3d_body_entered(body):
 	if body is CharacterController:

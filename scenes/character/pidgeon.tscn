@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://2l7wqwga4v1k"]
+[gd_scene load_steps=28 format=3 uid="uid://2l7wqwga4v1k"]
 
 [ext_resource type="PackedScene" uid="uid://bnmlp678v6bb3" path="res://data/models/pidgeon/pidgeon.glb" id="1_uha8d"]
-[ext_resource type="Material" path="res://resources/materials/pallete.tres" id="2_6ftuq"]
+[ext_resource type="Material" uid="uid://c70tfrcbwxfw1" path="res://resources/materials/pallete.tres" id="2_6ftuq"]
+[ext_resource type="Script" path="res://src/character_control/pidgeon.gd" id="2_tifue"]
 
 [sub_resource type="Animation" id="Animation_qqk36"]
 length = 0.001
@@ -896,6 +897,7 @@ nodes/output/position = Vector2(880, 160)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="pidgeon" instance=ExtResource("1_uha8d")]
+script = ExtResource("2_tifue")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(9.37488e-09, 0.22527, 0.0733299)
@@ -907,25 +909,30 @@ bones/2/rotation = Quaternion(-0.645571, 0.288508, 0.645572, 0.288508)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(0.00908929, 0.51563, -0.245444)
 bones/3/rotation = Quaternion(-0.00574458, -0.0461585, 0.997242, 0.0578352)
-bones/3/scale = Vector3(1, 1, 1)
+bones/3/scale = Vector3(0.999999, 1, 0.999999)
 bones/4/position = Vector3(3.45754e-08, 0.37722, -1.86265e-08)
 bones/4/rotation = Quaternion(0.103967, -0.00543506, -0.222897, 0.969267)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/position = Vector3(0.0313402, 0.0903142, -0.170654)
 bones/5/rotation = Quaternion(0.969648, 0.242913, 0.00981713, 0.0260765)
 bones/6/position = Vector3(0.00908943, 0.51563, 0.245444)
 bones/6/rotation = Quaternion(0.997242, -0.0578351, -0.00574535, 0.0461587)
-bones/6/scale = Vector3(0.999999, 1, 0.999999)
+bones/6/scale = Vector3(0.999997, 1, 0.999998)
 bones/7/position = Vector3(1.78115e-08, 0.37722, -8.3819e-09)
 bones/7/rotation = Quaternion(0.103968, 0.00543506, 0.222897, 0.969267)
+bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(0.0313403, 0.0903142, 0.170653)
 bones/8/rotation = Quaternion(0.00981745, -0.0260767, 0.969648, -0.242913)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/position = Vector3(-0.32441, 0.148455, 8.22406e-08)
 bones/9/rotation = Quaternion(-0.0592184, -0.704623, -0.0592184, 0.704623)
 bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.683421, -3.90958e-09, 3.08673e-08, 0.730024)
+bones/10/scale = Vector3(1, 1, 1)
 
-[node name="Pidgeon" parent="Armature/Skeleton3D" index="0"]
+[node name="Package" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -4.07222e-07, -1.24374e-08, 3.08498e-07, 0.743727, -0.668484, 3.43033e-07, 0.668484, 0.743727, -0.00387869, 0.662736, 0.160191)
+
+[node name="Pidgeon" parent="Armature/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("2_6ftuq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
