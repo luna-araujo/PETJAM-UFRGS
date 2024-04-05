@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b41shq8eff860"
+path="res://.godot/imported/barbed_wire.obj-ea2ef50e69dbccd57f4657f2131f58f8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barbed_wire.obj-ea2ef50e69dbccd57f4657f2131f58f8.mesh"]
+
+source_file="res://data/models/buildings/barbed_wire.obj"
+dest_files=["res://.godot/imported/barbed_wire.obj-ea2ef50e69dbccd57f4657f2131f58f8.mesh", "res://.godot/imported/barbed_wire.obj-ea2ef50e69dbccd57f4657f2131f58f8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
