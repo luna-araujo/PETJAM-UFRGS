@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dekhamdcl8sjx"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_i58be"]
-[ext_resource type="PackedScene" uid="uid://b41peahocqifl" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
+[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="2_u8xxx"]
 [ext_resource type="PackedScene" path="res://scenes/buildings/building_2.tscn" id="3_8slnf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ttfh"]

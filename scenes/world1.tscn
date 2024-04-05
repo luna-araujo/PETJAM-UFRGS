@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://vjw5tneuoupl"]
+
+[ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_o5k32"]
+[ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="2_ldcnx"]
+[ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="2_sw458"]
+[ext_resource type="ArrayMesh" uid="uid://dl0ycvjff27q8" path="res://data/models/buildings/vegetation/building_1_veg_2.obj" id="3_wqlhd"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/building_2.tscn" id="5_5hplb"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/building_3.tscn" id="10_nha1m"]
+[ext_resource type="ArrayMesh" uid="uid://bgjtl5gqy2a5b" path="res://data/models/buildings/building_3.obj" id="11_imncr"]
+[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="11_xyfwy"]
+[ext_resource type="ArrayMesh" uid="uid://dlgu81spgpsrl" path="res://data/models/buildings/vegetation/building_3_veg.obj" id="12_3tk8y"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/walkway.tscn" id="14_0cs1r"]
+[ext_resource type="ArrayMesh" uid="uid://dae13nb62q7nm" path="res://data/models/buildings/vegetation/walkway_veg_1.obj" id="15_cu8q3"]
+[ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="16_18m0b"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oxgb5"]
+
+[sub_resource type="Sky" id="Sky_jurmc"]
+sky_material = SubResource("ProceduralSkyMaterial_oxgb5")
+
+[sub_resource type="Environment" id="Environment_6avtx"]
+background_mode = 2
+sky = SubResource("Sky_jurmc")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_radius = 16.0
+glow_enabled = true
+fog_light_color = Color(0.415686, 0.584314, 0.792157, 1)
+fog_density = 0.0
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.003
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_ambient_inject = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uevao"]
+albedo_color = Color(0.14902, 0.568627, 0.717647, 1)
+metallic = 0.76
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_x25jg"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gkck3"]
+size = Vector2(100000, 100000)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Randomize Buildings" type="Node" parent="."]
+script = ExtResource("1_o5k32")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6avtx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="env" type="Node" parent="."]
+
+[node name="Building6" parent="env" instance=ExtResource("10_nha1m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.921, 28.117, 483.977)
+building_mesh = ExtResource("11_imncr")
+vegetation_mesh = ExtResource("12_3tk8y")
+
+[node name="DeepOcean" parent="env" instance=ExtResource("2_ldcnx")]
+far_edge = 4000
+
+[node name="water" type="MeshInstance3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_uevao")
+mesh = SubResource("BoxMesh_x25jg")
+skeleton = NodePath("../..")
+
+[node name="water_far" type="MeshInstance3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_uevao")
+mesh = SubResource("PlaneMesh_gkck3")
+skeleton = NodePath("../..")
+
+[node name="Building1" parent="env" instance=ExtResource("2_sw458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6011, -35.8146, 0.0108795)
+vegetation_mesh = ExtResource("3_wqlhd")
+
+[node name="Walkway4" parent="env" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.0159777, 0.0163512, 0.999738, 0.998326, 0.0558315, 0.0150419, -0.0555709, 0.998306, -0.0172158, -262.525, 10.0695, 336.53)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="Walkway3" parent="env" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.0275433, 0.998637, -0.0443239, 0.0275914, 0.0450833, 0.998602, 0.99924, 0.0262819, -0.0287956, -215.989, -4.4833, 246.502)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="Walkway2" parent="env" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.27397, 0.394926, 0.876911, 0.821647, 0.569997, 4.8974e-08, -0.499837, 0.720511, -0.480652, -128.167, -16.706, 166.113)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="Walkway" parent="env" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 95.5683, 12.2079, -26.4441)
+vegetation_mesh = ExtResource("15_cu8q3")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.163, 275.548, 289.628)
+use_collision = true
+size = Vector3(27.0127, 552.097, 29.3066)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.591, 280.027, 289.182)
+use_collision = true
+size = Vector3(41.1602, 201.409, 42.4951)
+
+[node name="Building4" parent="env" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.196, -142.308, 471.241)
+
+[node name="Building3" parent="env" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.292, -71.1538, 80.2447)
+
+[node name="Building2" parent="env" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.116, -63.695, 295)
+
+[node name="Building5" parent="env" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
+
+[node name="RatCompound" parent="env" instance=ExtResource("11_xyfwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -297.998, 78.1164, 477.054)
+
+[node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -301.293, 80.1321, 479.183)
+MAX_VELOCITY = 100.0
+STAMINA_JOLT_DEP = 30.0
+WEIGHT = 0.5
