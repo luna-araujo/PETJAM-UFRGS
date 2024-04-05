@@ -53,8 +53,8 @@ func process_grounded(delta):
 	last_grounded_cooldow -= delta; 
 	if(last_grounded_cooldow <= 0.0):
 		last_grounded_cooldow = 1.0;
-		print_debug("poop");
-		print_debug(last_player_grounded_position);
+		#print_debug("poop");
+		#print_debug(last_player_grounded_position);
 		last_player_grounded_position = position;
 	
 	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
@@ -189,6 +189,11 @@ func _process(delta):
 func  _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	player_body_target = Vector3(0.0,0.0,-1.0);
+	var deathzones = get_tree().get_nodes_in_group("obstacle");
+	print_debug(deathzones);
+	for dz in deathzones:
+		(dz as Area3D).body_entered.connect(entered_death_zone);
+	
 	
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -218,9 +223,12 @@ func process_death():
 				var dot = col.get_normal().dot(-last_velocity.normalized());
 				if (dot * last_velocity.length()) > 20:
 					died.emit(last_player_grounded_position);
-			elif root.is_in_group("obstacle"):
-				died.emit(last_player_grounded_position);
 				
+	
+
+func entered_death_zone(body: Node3D):
+	print_debug("hit");
+	died.emit(last_player_grounded_position);
 
 func _on_died(last_grounded: Vector3):
 	#implement death
