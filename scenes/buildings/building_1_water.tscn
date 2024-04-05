@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsqjjs1m6l4rm"]
+
+[ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="1_almom"]
+[ext_resource type="ArrayMesh" uid="uid://dl0ycvjff27q8" path="res://data/models/buildings/vegetation/building_1_veg_2.obj" id="2_j5mxl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uevao"]
+albedo_color = Color(0.14902, 0.568627, 0.717647, 1)
+metallic = 0.76
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_x25jg"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0x0h7"]
+size = Vector3(37.9358, 1, 37.9525)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q76nb"]
+size = Vector3(42.0173, 1, 2.10779)
+
+[node name="building1_water" type="Node3D"]
+
+[node name="Building10" parent="." instance=ExtResource("1_almom")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+vegetation_mesh = ExtResource("2_j5mxl")
+
+[node name="water" type="MeshInstance3D" parent="Building10"]
+transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.0554199, 81.1276, 0.215912)
+material_override = SubResource("StandardMaterial3D_uevao")
+mesh = SubResource("BoxMesh_x25jg")
+skeleton = NodePath("../../../../..")
+
+[node name="Area3D" type="Area3D" parent="." groups=["obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80.6666, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0743256)
+shape = SubResource("BoxShape3D_0x0h7")
+
+[node name="Area3D2" type="Area3D" parent="." groups=["obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 86.2465, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.22102, 20.0355)
+shape = SubResource("BoxShape3D_q76nb")
+
+[node name="Area3D3" type="Area3D" parent="." groups=["obstacle"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 86.2465, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.22102, 20.0355)
+shape = SubResource("BoxShape3D_q76nb")
+
+[node name="Area3D4" type="Area3D" parent="." groups=["obstacle"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 86.2465, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.22102, 20.0355)
+shape = SubResource("BoxShape3D_q76nb")
+
+[node name="Area3D5" type="Area3D" parent="." groups=["obstacle"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 86.2465, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.22102, 20.0355)
+shape = SubResource("BoxShape3D_q76nb")
