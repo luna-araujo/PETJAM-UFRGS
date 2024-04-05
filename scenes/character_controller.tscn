@@ -26,8 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 current = true
 fov = 60.0
 script = ExtResource("3_m6e8c")
-default_fov = 60.0
-max_fov = 110.0
 
 [node name="StaminaIndicator" parent="." instance=ExtResource("4_84q0i")]
 anchors_preset = 8
