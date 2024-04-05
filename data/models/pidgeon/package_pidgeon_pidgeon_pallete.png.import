@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pbjmbhecmcyp"
-path.s3tc="res://.godot/imported/circle_03.png-3344e2040c0c36799f5b86a9a9198c88.s3tc.ctex"
+uid="uid://b5no0ou0m6h8i"
+path.s3tc="res://.godot/imported/package_pidgeon_pidgeon_pallete.png-1327602b10a93a4b9f6b33bdcdbebd64.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://data/textures/kenney_particle-pack/PNG (Transparent)/circle_03.png"
-dest_files=["res://.godot/imported/circle_03.png-3344e2040c0c36799f5b86a9a9198c88.s3tc.ctex"]
+source_file="res://data/models/pidgeon/package_pidgeon_pidgeon_pallete.png"
+dest_files=["res://.godot/imported/package_pidgeon_pidgeon_pallete.png-1327602b10a93a4b9f6b33bdcdbebd64.s3tc.ctex"]
 
 [params]
 

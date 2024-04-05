@@ -36,9 +36,11 @@ var current_stamina = 100.0;
 var jolt_cooldown = 1.0;
 var last_velocity: Vector3 = Vector3.ZERO;
 
+var held_package:int = 0
+
 @onready var collisionShape = $CollisionShape3D;
 @onready var anim_tree: AnimationTree = $pidgeon/AnimationTree;
-@onready var player_body = $pidgeon;
+@onready var player_body:Pidgeon = $pidgeon;
 
 signal died;
 signal flap;
@@ -191,6 +193,7 @@ func _process(delta):
 
 func  _ready():
 	print_debug("drag_coef is: ", 1.0 - 1.0 / (DRAG_COEF * 1000));
+	player_body.set_package_visibility(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	player_body_target = Vector3(0.0,0.0,-1.0);
 	
@@ -231,6 +234,20 @@ func process_death():
 		elif body.is_in_group("water"):
 			water_hit.emit()
 			died.emit(last_player_grounded_position);
+
+func set_held_package(package_number):
+	held_package = package_number
+	if held_package == 0:
+		player_body.set_package_visibility(false)
+	else:
+		player_body.set_package_visibility(true)
+
+func set_held_package(package_number):
+	held_package = package_number
+	if held_package == 0:
+		player_body.set_package_visibility(false)
+	else:
+		player_body.set_package_visibility(true)
 
 func _on_died(last_grounded: Vector3):
 	grounded = true;
