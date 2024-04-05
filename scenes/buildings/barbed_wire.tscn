@@ -14,8 +14,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("1_m8rbr")
 surface_material_override/0 = ExtResource("2_1u557")
 
-[node name="Area3D" type="Area3D" parent="." groups=["barbed_wire"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["barbed_wire"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 1.31827, -6)
 shape = SubResource("CylinderShape3D_fkc3r")

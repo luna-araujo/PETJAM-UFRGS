@@ -193,10 +193,6 @@ func  _ready():
 	print_debug("drag_coef is: ", 1.0 - 1.0 / (DRAG_COEF * 1000));
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	player_body_target = Vector3(0.0,0.0,-1.0);
-	var deathzones = get_tree().get_nodes_in_group("obstacle");
-	#print_debug(deathzones);
-	for dz in deathzones:
-		(dz as Area3D).body_entered.connect(entered_death_zone);
 	
 	
 func _input(event):
@@ -221,24 +217,20 @@ func process_death():
 		return;
 	var col = get_last_slide_collision();
 	if col:
+		var body = col.get_collider() as StaticBody3D;
+		var root = body.owner;
 		if (last_velocity.length() > 20):
-			var body = col.get_collider() as StaticBody3D;
-			var root = body.owner;
 			if root.is_in_group("building"):
 				var dot = col.get_normal().dot(-last_velocity.normalized());
 				if (dot * last_velocity.length()) > 20:
 					died.emit(last_player_grounded_position);
 					solid_hit.emit()
-			elif root.is_in_group("obstacle"):
-				solid_hit.emit()
-				died.emit(last_player_grounded_position);
-				
-	
-
-func entered_death_zone(body: Node3D):
-	if(body.get_instance_id() == get_instance_id()):
-		water_hit.emit()
-		died.emit(last_player_grounded_position);
+		if body.is_in_group("barbed_wire"):
+			solid_hit.emit()
+			died.emit(last_player_grounded_position);
+		elif body.is_in_group("water"):
+			water_hit.emit()
+			died.emit(last_player_grounded_position);
 
 func _on_died(last_grounded: Vector3):
 	grounded = true;
