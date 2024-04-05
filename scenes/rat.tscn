@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://drtpv016yt38l"]
+[gd_scene load_steps=3 format=3 uid="uid://cxk6r2jldfakj"]
 
 [ext_resource type="PackedScene" uid="uid://bh8fryn10ny5v" path="res://data/models/rat/rat.glb" id="1_02hvq"]
-[ext_resource type="Material" uid="uid://ds3bg03ig428c" path="res://resources/materials/pallete.tres" id="2_rajx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se748"]
 height = 2.43485
@@ -13,9 +12,6 @@ bones/1/rotation = Quaternion(1.16851e-08, -9.82607e-08, 0.0505502, 0.998722)
 bones/2/rotation = Quaternion(-5.81376e-09, 3.59546e-08, 0.0391274, 0.999234)
 bones/2/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.699581, 0.102887, 0.699582, -0.102887)
-
-[node name="Mesh_Rat" parent="Armature/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("2_rajx6")
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"
