@@ -8,11 +8,11 @@ const MOUSE_SEN = 0.25;
 @export var JOLT_COOLDOW = 0.5;
 const WORLD_UP = Vector3(0.0,1.0,0.0);
 @export var VELOCITY_DAMP = 1.00;
-@export var MAX_VELOCITY = 30.0;
+@export var MAX_VELOCITY = 100.0;
 @export var STAMINA_PASSIVE_DEP = -5.0;
-@export var STAMINA_JOLT_DEP = 10.0;
-@export var DRAG_COEF = 1.0;
-@export var WEIGHT = 0.2;
+@export var STAMINA_JOLT_DEP = 33.3;
+@export var DRAG_COEF = 2.0;
+@export var WEIGHT = 0.5;
 
 var yaw = 0.0;
 var pitch = 0.0;
@@ -20,9 +20,9 @@ var player_front = Vector3(0.0,0.0,-1.0);
 var player_right;
 var player_up;
 var player_body_target;
-var last_player_grounded_position;
+@onready var last_player_grounded_position = position;
 
-var last_grounded_cooldow = 0.0;
+@onready var last_grounded_cooldow = 0.0;
 
 @export var coef := 50.0;
 
@@ -141,7 +141,7 @@ func process_flying(delta):
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
-	velocity *= DRAG_COEF
+	velocity *= 1.0 - 1.0 / (DRAG_COEF * 1000);
 	if(velocity.length() > MAX_VELOCITY):
 		velocity = velocity.normalized() * MAX_VELOCITY;
 
@@ -192,9 +192,15 @@ func _process(delta):
 	process_animations()
 
 func  _ready():
+	print_debug("drag_coef is: ", 1.0 - 1.0 / (DRAG_COEF * 1000));
 	player_body.set_package_visibility(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	player_body_target = Vector3(0.0,0.0,-1.0);
+	var deathzones = get_tree().get_nodes_in_group("obstacle");
+	#print_debug(deathzones);
+	for dz in deathzones:
+		(dz as Area3D).body_entered.connect(entered_death_zone);
+	
 	
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -227,8 +233,22 @@ func process_death():
 					died.emit(last_player_grounded_position);
 					solid_hit.emit()
 			elif root.is_in_group("obstacle"):
+				solid_hit.emit()
 				died.emit(last_player_grounded_position);
 				
+	
+
+func entered_death_zone(body: Node3D):
+	if(body.get_instance_id() == get_instance_id()):
+		water_hit.emit()
+		died.emit(last_player_grounded_position);
+
+func set_held_package(package_number):
+	held_package = package_number
+	if held_package == 0:
+		player_body.set_package_visibility(false)
+	else:
+		player_body.set_package_visibility(true)
 
 func set_held_package(package_number):
 	held_package = package_number
