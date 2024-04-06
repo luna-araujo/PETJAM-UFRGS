@@ -439,6 +439,24 @@ transform = Transform3D(0.999999, 1.52574e-09, 1.74832e-07, -1.52574e-09, 0.9999
 [node name="Walkway7" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
 transform = Transform3D(-0.999999, -1.52574e-09, -8.74094e-08, 0, 0.999847, -0.0174524, 8.74227e-08, -0.0174524, -0.999847, -108.108, 109.345, 330.126)
 
+[node name="BarbedWire" parent="env/centralChallange/Walkway7" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(-4.38544e-08, 0.000383958, -1, 0.0174524, 0.999848, 0.000383905, 0.999848, -0.0174524, -6.74487e-06, -19.4564, 24.0069, -9.84683)
+
+[node name="BarbedWire2" parent="env/centralChallange/Walkway7" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(-4.37671e-08, 0.00038396, -1, 0.0174524, 0.999848, 0.000383901, 0.999848, -0.0174524, -6.74471e-06, -6.45642, 24.0019, -9.84668)
+
+[node name="BarbedWire3" parent="env/centralChallange/Walkway7" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(-4.38835e-08, 0.000383958, -1, 0.0174524, 0.999849, 0.000383901, 0.999848, -0.0174524, -6.7448e-06, 6.54358, 23.9969, -9.84668)
+
+[node name="BarbedWire4" parent="env/centralChallange/Walkway7" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(-4.37962e-08, 0.00038396, -1, 0.0174524, 0.999849, 0.000383903, 0.999848, -0.0174524, -6.74483e-06, 19.5436, 23.9919, -9.84653)
+
+[node name="BarbedWire5" parent="env/centralChallange/Walkway7" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(-4.38253e-08, 0.00038396, -1, 0.0174524, 0.999849, 0.000383903, 0.999849, -0.0174524, -6.74489e-06, 32.5436, 23.9869, -9.84647)
+
+[node name="BarbedWire6" parent="env/centralChallange/Walkway7" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(-4.38544e-08, 0.000383958, -1, 0.0174524, 0.999849, 0.000383901, 0.999849, -0.0174524, -6.74489e-06, 45.5436, 23.9819, -9.84637)
+
 [node name="Walkway6" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
 transform = Transform3D(-4.37114e-08, -0.0174524, -0.999847, 0, 0.999847, -0.0174524, 1, -7.62869e-10, -4.37047e-08, -143.253, 77.0099, 342.391)
 
@@ -509,13 +527,19 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -156.8
 transform = Transform3D(0.518687, -0.44376, 0.730781, 0.256847, 0.896146, 0.361873, -0.815471, 0, 0.578797, -171.832, 71.8173, 291.438)
 
 [node name="Pipe8" parent="env/centralChallange" instance=ExtResource("16_hbg04")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.0179, 104.575, 299.751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.0179, 144.575, 299.751)
 
 [node name="Pipe9" parent="env/centralChallange" instance=ExtResource("17_3xee1")]
-transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 1.91069e-15, -85.394, 104.699, 283.779)
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 1.91069e-15, -85.394, 144.699, 283.779)
 
 [node name="Pipe10" parent="env/centralChallange" instance=ExtResource("18_qqwxm")]
 transform = Transform3D(-0.300057, 0, -0.953921, 0, 1, 0, 0.953921, 0, -0.300057, -149.036, 70.5386, 346.222)
 
+[node name="Pipe11" parent="env/centralChallange" instance=ExtResource("16_hbg04")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -90.6164, 126.476, 334.652)
+
+[node name="Pipe12" parent="env/centralChallange" instance=ExtResource("17_3xee1")]
+transform = Transform3D(-4.37114e-08, 0, 1, -0.866025, 0.5, -3.78552e-08, -0.5, -0.866025, -2.18557e-08, -82.7823, 126.357, 334.758)
+
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 104.629, 138.65, 298.704)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -141.294, 105.417, 343.455)

@@ -263,3 +263,11 @@ func _on_died(last_grounded: Vector3):
 	grounded = true;
 	velocity *= 0.0;
 	position = last_player_grounded_position;
+
+func set_held_package(package_number):
+	held_package = package_number
+	if held_package == 0:
+		player_body.set_package_visibility(false)
+	else:
+		player_body.set_package_visibility(true)
+
