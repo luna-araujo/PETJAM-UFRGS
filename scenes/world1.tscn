@@ -287,4 +287,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
 vegetation_mesh = ExtResource("13_1ighw")
 
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 67.199, 72.8241, -2.8168)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -115.966, 205.014, 347.698)

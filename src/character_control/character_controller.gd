@@ -45,6 +45,10 @@ signal flap;
 signal water_hit;
 signal solid_hit;
 
+var time = 0.0;
+var heights: Array[float];
+var graph_size = 300;
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -99,6 +103,7 @@ func process_grounded(delta):
 	
 func process_flying(delta):
 	
+	time += delta;
 	last_grounded_cooldow = 1.0;
 	
 	if(velocity.normalized().dot(WORLD_UP) < 1.0):
@@ -136,6 +141,23 @@ func process_flying(delta):
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_right, Color("#0066ff"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_up, Color("#00ff66"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + acc, Color("#00ff66"));
+	
+	# THIS IS THE COOLEST DEBUG OPTION
+	#if(time >= 0.1):
+		#time = 0.0;
+		#for i in graph_size-1:
+			#heights[i] = heights[i+1];
+		#heights[graph_size-1] = position.y;
+	#
+	#var botLeft = position + player_front + player_up - player_right * 3;
+	#var last_pos = botLeft + (player_up * heights[0] / 100);
+	#for i in graph_size:
+		#if(i == 0):
+			#continue;
+		#var cur_pos = botLeft + i / 50.0 * player_right + (player_up * heights[i] / 100);
+		#DebugDraw3D.draw_line(last_pos, cur_pos, Color(1,1,1));
+		#last_pos = cur_pos;
+	#==========================================================================================
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
@@ -190,6 +212,7 @@ func _process(delta):
 	process_animations()
 
 func  _ready():
+	heights.resize(graph_size);
 	print_debug("drag_coef is: ", 1.0 - 1.0 / (DRAG_COEF * 1000));
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	player_body_target = Vector3(0.0,0.0,-1.0);
