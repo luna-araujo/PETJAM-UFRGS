@@ -13,7 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://2ksyfvqnstub" path="res://scenes/buildings/building_1_water.tscn" id="12_0pxf2"]
 [ext_resource type="ArrayMesh" uid="uid://dlgu81spgpsrl" path="res://data/models/buildings/vegetation/building_3_veg.obj" id="12_3tk8y"]
 [ext_resource type="ArrayMesh" uid="uid://cmgxkx0ixjmae" path="res://data/models/buildings/vegetation/building_2_veg_2.obj" id="13_1ighw"]
+[ext_resource type="PackedScene" path="res://scenes/character/package.tscn" id="13_atku7"]
+[ext_resource type="PackedScene" uid="uid://cc5yhdn2tydqa" path="res://scenes/buildings/building_4.tscn" id="13_koqan"]
 [ext_resource type="PackedScene" uid="uid://iy7hyij7i7he" path="res://scenes/buildings/walkway.tscn" id="14_0cs1r"]
+[ext_resource type="ArrayMesh" uid="uid://bmjug16wgxvdt" path="res://data/models/buildings/vegetation/building_4_veg_2.obj" id="14_q2db1"]
+[ext_resource type="PackedScene" uid="uid://vx1u8l15ye6l" path="res://scenes/buildings/barbed_wire.tscn" id="15_c6ebq"]
 [ext_resource type="ArrayMesh" uid="uid://dae13nb62q7nm" path="res://data/models/buildings/vegetation/walkway_veg_1.obj" id="15_cu8q3"]
 [ext_resource type="ArrayMesh" uid="uid://ccrm2jgoscbet" path="res://data/models/buildings/vegetation/building_1_veg_3.obj" id="15_my1n3"]
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="16_18m0b"]
@@ -269,13 +273,157 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 237.41
 
 [node name="challange2" type="Node" parent="env"]
 
-[node name="Building4" parent="env/challange2" instance=ExtResource("5_5hplb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -456.584, -142.308, 160.489)
-vegetation_mesh = ExtResource("8_bjufm")
+[node name="RatCompound" parent="env/challange2" instance=ExtResource("11_xyfwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252.733, 128.846, 59.3177)
+compound_number = 29
+incomplete_text = "Por favor, nos ajude a recuperar nossos mantimentos que cairam dentro daqueles prédios tombados..
+"
+complete_text = "Obrigado! Você me lembra alguém que conheci a muitos anos....
+"
+
+[node name="Package" parent="env/challange2" instance=ExtResource("13_atku7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -593.575, 87.5802, -253.523)
+package_number = 29
 
 [node name="Building3" parent="env/challange2" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.292, -71.1538, 80.2447)
 vegetation_mesh = ExtResource("8_bjufm")
+
+[node name="Pipe2" parent="env/challange2" instance=ExtResource("16_hbg04")]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, -582.171, 27.8261, -275.857)
+
+[node name="Pipe5" parent="env/challange2" instance=ExtResource("16_hbg04")]
+transform = Transform3D(-1.28949e-08, 0, -0.295, 0, 0.295, 0, 0.295, 0, -1.28949e-08, -549.517, 5.34496, -270.476)
+
+[node name="Pipe4" parent="env/challange2" instance=ExtResource("17_3xee1")]
+transform = Transform3D(1.63918e-08, 0.375, -1.63918e-08, 5.66234e-08, -1.63918e-08, -0.375, -0.375, 1.63918e-08, -5.66234e-08, -591.803, 82.6628, -253.379)
+
+[node name="Pipe3" parent="env/challange2" instance=ExtResource("17_3xee1")]
+transform = Transform3D(-1.63918e-08, 0, 0.375, 0, 0.375, 0, -0.375, 0, -1.63918e-08, -594.977, 85.7076, -253.372)
+
+[node name="Building5" parent="env/challange2" instance=ExtResource("13_koqan")]
+transform = Transform3D(1, 0, 0, 0, 0.999199, 0.0400272, 0, -0.0400272, 0.999199, -570.977, 0, -229.754)
+
+[node name="Building4" parent="env/challange2" instance=ExtResource("13_koqan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -571.451, -2.46593, -291.009)
+vegetation_mesh = ExtResource("14_q2db1")
+
+[node name="BARBEDWIRE" type="Node3D" parent="env/challange2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.714, 0, 345.909)
+
+[node name="BarbedWire29" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -842.017, 98.0256, -612.271)
+
+[node name="BarbedWire30" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -841.612, 98.0256, -591.624)
+
+[node name="BarbedWire25" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.481, 98.0256, -609.572)
+
+[node name="BarbedWire13" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.245, 98.0256, -596.161)
+
+[node name="BarbedWire14" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -829.669, 98.0256, -596.285)
+
+[node name="BarbedWire15" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -832.846, 98.0256, -596.088)
+
+[node name="BarbedWire16" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -836.033, 98.0256, -596.021)
+
+[node name="BarbedWire17" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -839.458, 98.0256, -596.145)
+
+[node name="BarbedWire18" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -842.635, 98.0256, -595.948)
+
+[node name="BarbedWire19" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -845.639, 98.0256, -595.991)
+
+[node name="BarbedWire20" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -849.064, 98.0256, -596.114)
+
+[node name="BarbedWire21" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -852.241, 98.0256, -595.917)
+
+[node name="BarbedWire22" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -855.428, 98.0256, -595.851)
+
+[node name="BarbedWire23" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -859.258, 98.0256, -595.974)
+
+[node name="BarbedWire24" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -862.864, 98.0256, -595.777)
+
+[node name="BarbedWire7" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.47, 98.0256, -609.571)
+
+[node name="BarbedWire8" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -829.894, 98.0256, -609.694)
+
+[node name="BarbedWire9" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -833.071, 98.0256, -609.498)
+
+[node name="BarbedWire10" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -836.258, 98.0256, -609.431)
+
+[node name="BarbedWire11" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -839.683, 98.0256, -609.555)
+
+[node name="BarbedWire12" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -842.86, 98.0256, -609.358)
+
+[node name="BarbedWire4" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -845.864, 98.0256, -609.4)
+
+[node name="BarbedWire5" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -849.289, 98.0256, -609.524)
+
+[node name="BarbedWire6" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -852.466, 98.0256, -609.327)
+
+[node name="BarbedWire3" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -855.653, 98.0256, -609.261)
+
+[node name="BarbedWire2" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -859.362, 98.0256, -609.384)
+
+[node name="BarbedWire" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -863.077, 98.0256, -609.187)
+
+[node name="BarbedWire27" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -820.107, 98.0256, -596.161)
+
+[node name="BarbedWire28" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(0.999862, 0, 0.0166497, 0, 1, 0, -0.0166497, 0, 0.999862, -820.635, 98.0256, -610.171)
+
+[node name="BarbedWire26" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.04, 98.0256, -596.161)
+
+[node name="Walkway2" parent="env/challange2" instance=ExtResource("14_0cs1r")]
+transform = Transform3D(-0.27397, 0.394926, 0.876911, 0.821647, 0.569997, 4.8974e-08, -0.499837, 0.720511, -0.480652, -508.539, -21.9978, -282.11)
+
+[node name="Pipe1" parent="env/challange2" instance=ExtResource("16_hbg04")]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, -570.896, 68.7421, -245.416)
+
+[node name="Pipe6" parent="env/challange2" instance=ExtResource("16_hbg04")]
+transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -593.273, 43.1552, -265.831)
+
+[node name="Pipe7" parent="env/challange2" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -586.286, 43.155, -265.832)
+
+[node name="Pipe8" parent="env/challange2" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -576.904, 43.155, -265.832)
+
+[node name="Pipe9" parent="env/challange2" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -567.471, 43.155, -265.832)
+
+[node name="Pipe10" parent="env/challange2" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -558.243, 43.155, -265.832)
+
+[node name="Pipe11" parent="env/challange2" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -548.943, 43.155, -265.832)
 
 [node name="centralChallange" type="Node3D" parent="env"]
 
