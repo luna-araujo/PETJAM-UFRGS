@@ -24,7 +24,6 @@ text = "Hey Text goes here lol xd!! Lorem ipsum e os caralho kkkkkkkkk"
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_w0y26")
 
 [node name="Label3D" type="Label3D" parent="."]
