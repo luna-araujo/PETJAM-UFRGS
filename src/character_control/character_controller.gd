@@ -262,7 +262,7 @@ func process_death():
 func _on_died(last_grounded: Vector3):
 	grounded = true;
 	velocity *= 0.0;
-	position = last_player_grounded_position;
+	position = last_grounded;
 
 func set_held_package(package_number):
 	held_package = package_number

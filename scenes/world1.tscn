@@ -1,9 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://vjw5tneuoupl"]
+[gd_scene load_steps=32 format=3 uid="uid://vjw5tneuoupl"]
 
+[ext_resource type="Script" path="res://scenes/gameStateUpdater.gd" id="1_bbdm4"]
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_o5k32"]
 [ext_resource type="Sky" uid="uid://buw65o4kd4yde" path="res://resources/sky/sky.tres" id="2_avdoh"]
 [ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="2_ldcnx"]
+[ext_resource type="PackedScene" uid="uid://bvwc7jafb4fer" path="res://scenes/ui/game_over_menu.tscn" id="2_qxdy3"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="2_sw458"]
+[ext_resource type="PackedScene" uid="uid://d0vfj71fheeah" path="res://scenes/sign/sign.tscn" id="3_ivr47"]
 [ext_resource type="ArrayMesh" uid="uid://dl0ycvjff27q8" path="res://data/models/buildings/vegetation/building_1_veg_2.obj" id="3_wqlhd"]
 [ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/building_2.tscn" id="5_5hplb"]
 [ext_resource type="ArrayMesh" uid="uid://ds5en1xr62no2" path="res://data/models/buildings/vegetation/building_2_veg_1.obj" id="8_bjufm"]
@@ -44,6 +47,8 @@ volumetric_fog_anisotropy = 0.9
 volumetric_fog_ambient_inject = 1.0
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_bbdm4")
+end_game_scene = ExtResource("2_qxdy3")
 
 [node name="Randomize Buildings" type="Node" parent="."]
 script = ExtResource("1_o5k32")
@@ -57,12 +62,23 @@ shadow_enabled = true
 
 [node name="env" type="Node" parent="."]
 
+[node name="Sign" parent="env" instance=ExtResource("3_ivr47")]
+transform = Transform3D(0.968262, 0, -0.249941, 0, 1, 0, 0.249941, 0, 0.968262, 1042.18, 52.9114, -893.101)
+text = "Nao tem nada aqui
+
+"
+
 [node name="DeepOcean" parent="env" instance=ExtResource("2_ldcnx")]
 
 [node name="challange1" type="Node" parent="env"]
 
 [node name="RatCompound" parent="env/challange1" instance=ExtResource("11_xyfwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -297.998, 20.8837, 477.054)
+incomplete_text = "pufavo pega pa nois o pacote do outro lado dos predios, cuidado voce talvez fique cansado."
+complete_text = "Obrigado nosso heroi. Por favor tambem ajude nossos amigos do campo Oeste."
+
+[node name="Package" parent="env/challange1" instance=ExtResource("13_atku7")]
+transform = Transform3D(0.995183, 0, -0.0980345, 0, 1, 0, 0.0980345, 0, 0.995183, -666.438, 19.7882, 984.53)
 
 [node name="Building6" parent="env/challange1" instance=ExtResource("10_nha1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.921, -29.1157, 483.977)
@@ -449,19 +465,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -841.612, 98.0256, -591.624)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.481, 98.0256, -609.572)
 
 [node name="BarbedWire13" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.245, 98.0256, -596.161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.245, 98.0256, -595.072)
 
 [node name="BarbedWire14" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -829.669, 98.0256, -596.285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -829.669, 98.0256, -595.47)
 
 [node name="BarbedWire15" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -832.846, 98.0256, -596.088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -832.846, 98.0256, -595.172)
 
 [node name="BarbedWire16" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -836.033, 98.0256, -596.021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -836.033, 98.0256, -595.339)
 
 [node name="BarbedWire17" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -839.458, 98.0256, -596.145)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -839.458, 98.0256, -595.556)
 
 [node name="BarbedWire18" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -842.635, 98.0256, -595.948)
@@ -476,13 +492,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -849.064, 98.0256, -596.114)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -852.241, 98.0256, -595.917)
 
 [node name="BarbedWire22" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -855.428, 98.0256, -595.851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -855.428, 98.0256, -595.308)
 
 [node name="BarbedWire23" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -859.258, 98.0256, -595.974)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -859.258, 98.0256, -595.337)
 
 [node name="BarbedWire24" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -862.864, 98.0256, -595.777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -862.864, 98.0256, -595.503)
 
 [node name="BarbedWire7" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -826.47, 98.0256, -609.571)
@@ -521,13 +537,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -859.362, 98.0256, -609.384)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -863.077, 98.0256, -609.187)
 
 [node name="BarbedWire27" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -820.107, 98.0256, -596.161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -820.107, 98.0256, -595.47)
 
 [node name="BarbedWire28" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
 transform = Transform3D(0.999862, 0, 0.0166497, 0, 1, 0, -0.0166497, 0, 0.999862, -820.635, 98.0256, -610.171)
 
 [node name="BarbedWire26" parent="env/challange2/BARBEDWIRE" instance=ExtResource("15_c6ebq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.04, 98.0256, -596.161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -823.04, 98.0256, -595.647)
 
 [node name="Walkway2" parent="env/challange2" instance=ExtResource("14_0cs1r")]
 transform = Transform3D(-0.27397, 0.394926, 0.876911, 0.821647, 0.569997, 4.8974e-08, -0.499837, 0.720511, -0.480652, -508.539, -21.9978, -282.11)
@@ -554,6 +570,7 @@ transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949
 transform = Transform3D(-1.28949e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.28949e-08, -548.943, 43.155, -265.832)
 
 [node name="centralChallange" type="Node3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00860596, 0.030304, -0.0690765)
 
 [node name="Building1" parent="env/centralChallange" instance=ExtResource("2_sw458")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6011, -35.8146, 0.0108795)
@@ -606,16 +623,6 @@ vegetation_mesh = ExtResource("15_cu8q3")
 [node name="Walkway" parent="env/centralChallange" instance=ExtResource("14_0cs1r")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 95.5683, 12.2079, -26.4441)
 vegetation_mesh = ExtResource("15_cu8q3")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="env/centralChallange"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.163, 275.548, 289.628)
-use_collision = true
-size = Vector3(27.0127, 552.097, 29.3066)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="env/centralChallange"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.591, 280.027, 289.182)
-use_collision = true
-size = Vector3(41.1602, 201.409, 42.4951)
 
 [node name="Building5" parent="env/centralChallange" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
@@ -671,4 +678,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -90.61
 transform = Transform3D(-4.37114e-08, 0, 1, -0.866025, 0.5, -3.78552e-08, -0.5, -0.866025, -2.18557e-08, -82.7823, 126.357, 334.758)
 
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -283.968, 1.95419, 444.684)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 101.5, 36.5212, -46.5949)
+
+[editable path="env/Sign"]
