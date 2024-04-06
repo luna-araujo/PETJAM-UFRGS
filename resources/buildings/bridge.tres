@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BuildingPreset" load_steps=9 format=3 uid="uid://dpatyd1s5t8m2"]
+
+[ext_resource type="Material" uid="uid://c5wxlmcxn1150" path="res://resources/materials/bars.tres" id="1_0pp2d"]
+[ext_resource type="ArrayMesh" uid="uid://dyj4am4irxmrn" path="res://data/models/buildings/bridge.obj" id="2_uim6i"]
+[ext_resource type="Script" path="res://src/resources/building_preset.gd" id="3_aj5ed"]
+[ext_resource type="Material" uid="uid://cxw5wuik7dpob" path="res://resources/materials/leaves.tres" id="4_a4gem"]
+[ext_resource type="ArrayMesh" uid="uid://63ns4dwytxqv" path="res://data/models/buildings/vegetation/bridge_veg_1.obj" id="5_fc0sy"]
+[ext_resource type="ArrayMesh" uid="uid://cl5q02h1k1v36" path="res://data/models/buildings/vegetation/bridge_veg_2.obj" id="6_3jfsi"]
+[ext_resource type="Material" uid="uid://fpy6lh1wqtrb" path="res://resources/materials/concrete.tres" id="7_72htr"]
+[ext_resource type="Material" uid="uid://chmms72swuovq" path="res://resources/materials/building_window.tres" id="8_tikj7"]
+
+[resource]
+script = ExtResource("3_aj5ed")
+building_mesh = ExtResource("2_uim6i")
+vegetation_meshes = Array[Mesh]([ExtResource("5_fc0sy"), ExtResource("6_3jfsi")])
+walls_material = ExtResource("7_72htr")
+windows_material = ExtResource("8_tikj7")
+bars_material = ExtResource("1_0pp2d")
+vegetation_material = ExtResource("4_a4gem")
