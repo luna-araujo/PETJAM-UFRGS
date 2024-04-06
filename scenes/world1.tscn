@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/building_3.tscn" id="10_nha1m"]
 [ext_resource type="ArrayMesh" uid="uid://bgjtl5gqy2a5b" path="res://data/models/buildings/building_3.obj" id="11_imncr"]
 [ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="11_xyfwy"]
-[ext_resource type="PackedScene" uid="uid://bsqjjs1m6l4rm" path="res://scenes/buildings/building_1_water.tscn" id="12_0pxf2"]
+[ext_resource type="PackedScene" uid="uid://2ksyfvqnstub" path="res://scenes/buildings/building_1_water.tscn" id="12_0pxf2"]
 [ext_resource type="ArrayMesh" uid="uid://dlgu81spgpsrl" path="res://data/models/buildings/vegetation/building_3_veg.obj" id="12_3tk8y"]
 [ext_resource type="ArrayMesh" uid="uid://cmgxkx0ixjmae" path="res://data/models/buildings/vegetation/building_2_veg_2.obj" id="13_1ighw"]
 [ext_resource type="PackedScene" uid="uid://iy7hyij7i7he" path="res://scenes/buildings/walkway.tscn" id="14_0cs1r"]
@@ -52,7 +52,6 @@ shadow_enabled = true
 [node name="env" type="Node" parent="."]
 
 [node name="DeepOcean" parent="env" instance=ExtResource("2_ldcnx")]
-far_edge = 4000
 
 [node name="challange1" type="Node" parent="env"]
 
@@ -232,6 +231,10 @@ vegetation_mesh = ExtResource("13_1ighw")
 
 [node name="challange2" type="Node" parent="env"]
 
+[node name="Building4" parent="env/challange2" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -456.584, -142.308, 160.489)
+vegetation_mesh = ExtResource("8_bjufm")
+
 [node name="Building3" parent="env/challange2" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.292, -71.1538, 80.2447)
 vegetation_mesh = ExtResource("8_bjufm")
@@ -287,4 +290,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
 vegetation_mesh = ExtResource("13_1ighw")
 
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -115.966, 205.014, 347.698)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -222.763, 205.014, 93.2795)
