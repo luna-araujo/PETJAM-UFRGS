@@ -10,4 +10,5 @@ shader_parameter/rooms = Vector2(1, 1)
 shader_parameter/room_seed = 0.0
 shader_parameter/atlas_rooms = Vector2(2, 2)
 shader_parameter/depth = 0.5
+shader_parameter/brightness = 3.0
 shader_parameter/room_texture = ExtResource("2_np8yu")
