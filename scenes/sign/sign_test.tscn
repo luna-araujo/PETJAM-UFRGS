@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://x1rd4gtwfxki"]
+[gd_scene load_steps=7 format=3 uid="uid://x1rd4gtwfxki"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_niwd6"]
 [ext_resource type="PackedScene" uid="uid://d0vfj71fheeah" path="res://scenes/sign/sign.tscn" id="2_ktdkq"]
 [ext_resource type="PackedScene" uid="uid://bgxvcrcpag5gm" path="res://scenes/character/package.tscn" id="3_p3kw2"]
 [ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="4_75eug"]
+[ext_resource type="PackedScene" uid="uid://x8altycbj1pi" path="res://scenes/game_manager.tscn" id="5_ihsv1"]
+[ext_resource type="PackedScene" uid="uid://bvwc7jafb4fer" path="res://scenes/ui/game_over_menu.tscn" id="6_y1fun"]
 
 [node name="SignTest" type="Node3D"]
 
@@ -32,3 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -10)
 compound_number = 69
 incomplete_text = "Pega o bagui pra mim pf"
 complete_text = "Vlw cupixa tu é o cara"
+
+[node name="GameManager" parent="." instance=ExtResource("5_ihsv1")]
+game_over_scene = ExtResource("6_y1fun")
