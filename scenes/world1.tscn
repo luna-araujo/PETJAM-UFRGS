@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vjw5tneuoupl"]
+[gd_scene load_steps=29 format=3 uid="uid://vjw5tneuoupl"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_o5k32"]
 [ext_resource type="Sky" uid="uid://buw65o4kd4yde" path="res://resources/sky/sky.tres" id="2_avdoh"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://bs37oh2sx0fh4" path="res://scenes/pipes/pipe_2.tscn" id="19_bkirt"]
 [ext_resource type="PackedScene" uid="uid://dgj5ak0f8hn1i" path="res://scenes/buildings/bridge.tscn" id="21_w6qfm"]
 [ext_resource type="ArrayMesh" uid="uid://cl5q02h1k1v36" path="res://data/models/buildings/vegetation/bridge_veg_2.obj" id="22_kjvxy"]
-[ext_resource type="PackedScene" uid="uid://cc5yhdn2tydqa" path="res://scenes/buildings/building_4.tscn" id="24_c1lpe"]
 
 [sub_resource type="Environment" id="Environment_6avtx"]
 background_mode = 2
@@ -251,7 +250,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 66.028
 [node name="Pipe3" parent="env/challange3/entrance" instance=ExtResource("17_3xee1")]
 transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, 0, -4.37114e-08, 66.0151, 23.4623, 264.195)
 
-[node name="Building4" parent="env/challange3/entrance" instance=ExtResource("24_c1lpe")]
+[node name="Building4" parent="env/challange3/entrance" instance=ExtResource("13_koqan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, -14.8424, 294.231)
 
 [node name="Pipe5" parent="env/challange3/entrance" instance=ExtResource("16_hbg04")]

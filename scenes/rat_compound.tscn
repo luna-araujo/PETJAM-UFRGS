@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/rat_compound.gd" id="1_df667"]
 [ext_resource type="PackedScene" uid="uid://dtv05mh2j06ay" path="res://scenes/bonfire.tscn" id="1_rar82"]
-[ext_resource type="PackedScene" uid="uid://drtpv016yt38l" path="res://scenes/rat.tscn" id="2_w86ba"]
+[ext_resource type="PackedScene" uid="uid://cxk6r2jldfakj" path="res://scenes/rat.tscn" id="2_w86ba"]
 [ext_resource type="PackedScene" uid="uid://d0vfj71fheeah" path="res://scenes/sign/sign.tscn" id="4_auabw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5rhsp"]

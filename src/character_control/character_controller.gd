@@ -62,7 +62,8 @@ func process_grounded(delta):
 	last_grounded_cooldow -= delta; 
 	if(last_grounded_cooldow <= 0.0):
 		last_grounded_cooldow = 1.0;
-		last_player_grounded_position = position;
+		if(is_on_floor()):
+			last_player_grounded_position = position;
 	
 	if(Vector3(velocity.x, 0.0, velocity.z).length() > 0.0000001):
 		player_body_target = Vector3(velocity.x, 0.0, velocity.z).normalized();
