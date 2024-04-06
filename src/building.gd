@@ -31,9 +31,12 @@ func update_meshes():
 		building.mesh = building_mesh
 		building.create_trimesh_collision()
 		building.get_child(0).get_child(0).hide()
+		var surface_count = building.get_surface_override_material_count()
 		building.set_surface_override_material(0, building_preset.walls_material)
-		building.set_surface_override_material(1, building_preset.windows_material)
-		building.set_surface_override_material(2, building_preset.bars_material)
+		if (surface_count > 1):
+			building.set_surface_override_material(1, building_preset.windows_material)
+		if (surface_count > 2):
+			building.set_surface_override_material(2, building_preset.bars_material)
 	if (vegetation_mesh != null):
 		var vegetation: MeshInstance3D = get_node("vegetation")
 		vegetation.mesh = vegetation_mesh

@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://vjw5tneuoupl"]
+[gd_scene load_steps=26 format=3 uid="uid://vjw5tneuoupl"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_o5k32"]
+[ext_resource type="Sky" uid="uid://buw65o4kd4yde" path="res://resources/sky/sky.tres" id="2_avdoh"]
 [ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="2_ldcnx"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="2_sw458"]
 [ext_resource type="ArrayMesh" uid="uid://dl0ycvjff27q8" path="res://data/models/buildings/vegetation/building_1_veg_2.obj" id="3_wqlhd"]
@@ -20,15 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://bjl2u4ufetl36" path="res://scenes/pipes/pipe_3.tscn" id="17_3xee1"]
 [ext_resource type="PackedScene" uid="uid://b2frcc4bw4mt8" path="res://scenes/pipes/pipe_4.tscn" id="18_qqwxm"]
 [ext_resource type="PackedScene" uid="uid://bs37oh2sx0fh4" path="res://scenes/pipes/pipe_2.tscn" id="19_bkirt"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oxgb5"]
-
-[sub_resource type="Sky" id="Sky_jurmc"]
-sky_material = SubResource("ProceduralSkyMaterial_oxgb5")
+[ext_resource type="PackedScene" uid="uid://dgj5ak0f8hn1i" path="res://scenes/buildings/bridge.tscn" id="21_w6qfm"]
+[ext_resource type="ArrayMesh" uid="uid://cl5q02h1k1v36" path="res://data/models/buildings/vegetation/bridge_veg_2.obj" id="22_kjvxy"]
+[ext_resource type="PackedScene" uid="uid://cc5yhdn2tydqa" path="res://scenes/buildings/building_4.tscn" id="24_c1lpe"]
 
 [sub_resource type="Environment" id="Environment_6avtx"]
 background_mode = 2
-sky = SubResource("Sky_jurmc")
+sky = ExtResource("2_avdoh")
 tonemap_mode = 2
 ssr_enabled = true
 ssao_enabled = true
@@ -229,9 +228,44 @@ transform = Transform3D(0.989709, -0.14229, -0.0151637, 0.143095, 0.984136, 0.10
 
 [node name="challange3" type="Node" parent="env"]
 
-[node name="Building2" parent="env/challange3" instance=ExtResource("5_5hplb")]
+[node name="RatCompound" parent="env/challange3" instance=ExtResource("11_xyfwy")]
+transform = Transform3D(-0.188393, 0, -0.982094, 0, 1, 0, 0.982094, 0, -0.188393, 183.647, 85.1574, 278.362)
+compound_number = 2
+
+[node name="entrance" type="Node" parent="env/challange3"]
+
+[node name="Building2" parent="env/challange3/entrance" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.116, -63.695, 295)
 vegetation_mesh = ExtResource("13_1ighw")
+
+[node name="Pipe1" parent="env/challange3/entrance" instance=ExtResource("16_hbg04")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 63, 110.703, 300.067)
+
+[node name="Pipe2" parent="env/challange3/entrance" instance=ExtResource("19_bkirt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 66.0285, 7.46234, 264.15)
+
+[node name="Pipe3" parent="env/challange3/entrance" instance=ExtResource("17_3xee1")]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, 0, -4.37114e-08, 66.0151, 23.4623, 264.195)
+
+[node name="Building4" parent="env/challange3/entrance" instance=ExtResource("24_c1lpe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, -14.8424, 294.231)
+
+[node name="Pipe5" parent="env/challange3/entrance" instance=ExtResource("16_hbg04")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 152, 120.737, 305.818)
+
+[node name="Pipe4" parent="env/challange3/entrance" instance=ExtResource("16_hbg04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152, 101, 276)
+
+[node name="part1" type="Node" parent="env/challange3"]
+
+[node name="Pipe2" parent="env/challange3/part1" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 213.116, 19.6001, 294.165)
+
+[node name="Pipe3" parent="env/challange3/part1" instance=ExtResource("17_3xee1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 229, 19.5817, 294.202)
+
+[node name="Pipe1" parent="env/challange3/part1" instance=ExtResource("16_hbg04")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 237.418, 3.40503, 294.289)
 
 [node name="challange2" type="Node" parent="env"]
 
@@ -298,6 +332,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139, 94, 362)
 [node name="Pipe1" parent="env/centralChallange" instance=ExtResource("16_hbg04")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.491, 85.7698, 366.391)
 
+[node name="Walkway9" parent="env/centralChallange" instance=ExtResource("21_w6qfm")]
+transform = Transform3D(0.994744, 0.0734867, -0.0713038, -0.0872001, 0.972993, -0.213729, 0.0536719, 0.218823, 0.974287, -68.3762, -30.2406, 282.729)
+vegetation_mesh = ExtResource("22_kjvxy")
+
 [node name="Pipe2" parent="env/centralChallange" instance=ExtResource("19_bkirt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -128.635, 6.52534, 335)
 
@@ -310,5 +348,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000579834, -0.0184832, 23.
 [node name="Pipe1" parent="env/centralChallange/Pipe2" instance=ExtResource("16_hbg04")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110955, -18.1306)
 
+[node name="Pipe5" parent="env/centralChallange" instance=ExtResource("16_hbg04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.477, 25.3695, 248.887)
+
+[node name="Pipe6" parent="env/centralChallange" instance=ExtResource("17_3xee1")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -156.807, 54.5529, 248.887)
+
+[node name="Pipe7" parent="env/centralChallange" instance=ExtResource("19_bkirt")]
+transform = Transform3D(0.518687, -0.44376, 0.730781, 0.256847, 0.896146, 0.361873, -0.815471, 0, 0.578797, -171.832, 71.8173, 291.438)
+
+[node name="Pipe8" parent="env/centralChallange" instance=ExtResource("16_hbg04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.0179, 104.575, 299.751)
+
+[node name="Pipe9" parent="env/centralChallange" instance=ExtResource("17_3xee1")]
+transform = Transform3D(-4.37114e-08, 0, 1, -1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -1, 1.91069e-15, -85.394, 104.699, 283.779)
+
+[node name="Pipe10" parent="env/centralChallange" instance=ExtResource("18_qqwxm")]
+transform = Transform3D(-0.300057, 0, -0.953921, 0, 1, 0, 0.953921, 0, -0.300057, -149.036, 70.5386, 346.222)
+
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -115.966, 205.014, 347.698)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 104.629, 138.65, 298.704)

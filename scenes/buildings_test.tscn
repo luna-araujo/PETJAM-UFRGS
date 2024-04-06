@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bi2uqwfymrjrw"]
+[gd_scene load_steps=24 format=3 uid="uid://bi2uqwfymrjrw"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_oucvp"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="2_1ailv"]
+[ext_resource type="Sky" uid="uid://buw65o4kd4yde" path="res://resources/sky/sky.tres" id="2_vyr8m"]
 [ext_resource type="PackedScene" uid="uid://dy3emobp2hnq6" path="res://scenes/buildings/building_2.tscn" id="3_sb2ek"]
 [ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/building_3.tscn" id="4_gawro"]
 [ext_resource type="ArrayMesh" uid="uid://ccrm2jgoscbet" path="res://data/models/buildings/vegetation/building_1_veg_3.obj" id="4_lvo8j"]
@@ -19,17 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dddhh8w5r62by" path="res://scenes/pipes/pipe_1.tscn" id="17_t4mcv"]
 [ext_resource type="PackedScene" uid="uid://dgj5ak0f8hn1i" path="res://scenes/buildings/bridge.tscn" id="18_dls1d"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbt11"]
-sky_top_color = Color(0.25098, 0.466667, 0.654902, 1)
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_jurmc"]
-sky_material = SubResource("ProceduralSkyMaterial_vbt11")
-
 [sub_resource type="Environment" id="Environment_mfber"]
 background_mode = 2
-sky = SubResource("Sky_jurmc")
+sky = ExtResource("2_vyr8m")
 tonemap_mode = 2
 ssr_enabled = true
 ssao_enabled = true
