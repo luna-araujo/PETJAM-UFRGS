@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://x1rd4gtwfxki"]
+[gd_scene load_steps=7 format=3 uid="uid://x1rd4gtwfxki"]
 
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="1_niwd6"]
 [ext_resource type="PackedScene" uid="uid://d0vfj71fheeah" path="res://scenes/sign/sign.tscn" id="2_ktdkq"]
+[ext_resource type="PackedScene" uid="uid://bgxvcrcpag5gm" path="res://scenes/character/package.tscn" id="3_p3kw2"]
+[ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="4_75eug"]
+[ext_resource type="PackedScene" uid="uid://x8altycbj1pi" path="res://scenes/game_manager.tscn" id="5_ihsv1"]
+[ext_resource type="PackedScene" uid="uid://bvwc7jafb4fer" path="res://scenes/ui/game_over_menu.tscn" id="6_y1fun"]
 
 [node name="SignTest" type="Node3D"]
 
@@ -16,6 +20,20 @@ size = Vector3(25.877, 1.9, 44.8701)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55655, -1.19209e-07, 1.1001)
 
 [node name="Sign" parent="." instance=ExtResource("2_ktdkq")]
+transform = Transform3D(-0.305961, 0, -0.952044, 0, 1, 0, 0.952044, 0, -0.305961, -3, 0, -3)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.622337, 0.782749, 5.83194e-09, 0.13599, 0.108121, 0.984793, 0.770846, 0.612873, -0.173734, 0, 5.97261, 0)
+
+[node name="Package" parent="." instance=ExtResource("3_p3kw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88405, 4.76837e-07, 0.122691)
+package_number = 69
+
+[node name="RatCompound" parent="." instance=ExtResource("4_75eug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -10)
+compound_number = 69
+incomplete_text = "Pega o bagui pra mim pf"
+complete_text = "Vlw cupixa tu é o cara"
+
+[node name="GameManager" parent="." instance=ExtResource("5_ihsv1")]
+game_over_scene = ExtResource("6_y1fun")

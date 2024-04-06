@@ -6,15 +6,15 @@
 [ext_resource type="Script" path="res://src/character_control/character_camera.gd" id="3_m6e8c"]
 [ext_resource type="PackedScene" uid="uid://cqw7msc16yh2k" path="res://scenes/ui/stamina_indicator.tscn" id="4_84q0i"]
 [ext_resource type="Script" path="res://src/ui/velocityIndicator.gd" id="5_ma7fi"]
-[ext_resource type="AudioStream" uid="uid://b7mn2ynb3r1ae" path="res://data/sounds/ambient_wind_looped.wav" id="7_4pjxj"]
 [ext_resource type="AudioStream" uid="uid://csp8podyk6fh" path="res://data/sounds/flap_1.wav" id="7_epl0v"]
 [ext_resource type="Script" path="res://src/character_control/character_audio.gd" id="8_u1mel"]
-[ext_resource type="AudioStream" uid="uid://ddj6bl0yk4li7" path="res://data/sounds/fly_wind_looped.wav" id="9_n6sje"]
-[ext_resource type="AudioStream" uid="uid://d0sio2e5rfg0h" path="res://data/sounds/flap_2.wav" id="9_n43a1"]
-[ext_resource type="AudioStream" uid="uid://dcql4xf5vaplo" path="res://data/sounds/flap_3.wav" id="10_svqmj"]
-[ext_resource type="AudioStream" uid="uid://bvdt8m831q4ni" path="res://data/sounds/flap_4.wav" id="11_y6p5o"]
-[ext_resource type="AudioStream" uid="uid://cajklpiwfjofn" path="res://data/sounds/splash.ogg" id="13_g84wk"]
-[ext_resource type="AudioStream" uid="uid://cfcgooawsj8xr" path="res://data/sounds/splat.wav" id="14_t682n"]
+[ext_resource type="AudioStream" uid="uid://ddj6bl0yk4li7" path="res://data/sounds/fly_wind_looped.wav" id="9_5xvu8"]
+[ext_resource type="AudioStream" uid="uid://d0sio2e5rfg0h" path="res://data/sounds/flap_2.wav" id="9_eluxm"]
+[ext_resource type="AudioStream" uid="uid://b7mn2ynb3r1ae" path="res://data/sounds/ambient_wind_looped.wav" id="10_gyd1x"]
+[ext_resource type="AudioStream" uid="uid://dcql4xf5vaplo" path="res://data/sounds/flap_3.wav" id="10_w6rmh"]
+[ext_resource type="AudioStream" uid="uid://bvdt8m831q4ni" path="res://data/sounds/flap_4.wav" id="11_cdls3"]
+[ext_resource type="AudioStream" uid="uid://cajklpiwfjofn" path="res://data/sounds/splash.ogg" id="12_g5lcg"]
+[ext_resource type="AudioStream" uid="uid://cfcgooawsj8xr" path="res://data/sounds/splat.wav" id="13_ioni6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0wee"]
 
@@ -71,21 +71,22 @@ enabled = false
 shape = SubResource("SphereShape3D_4tihx")
 target_position = Vector3(0, 0, 0)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_epl0v")
+mix_target = 2
+
 [node name="CharacterAudio" type="Node" parent="."]
 script = ExtResource("8_u1mel")
-flaps = Array[AudioStream]([ExtResource("7_epl0v"), ExtResource("9_n43a1"), ExtResource("10_svqmj"), ExtResource("11_y6p5o")])
-water_splashes = Array[AudioStream]([ExtResource("13_g84wk")])
-solid_splashes = Array[AudioStream]([ExtResource("14_t682n")])
+flaps = Array[AudioStream]([ExtResource("7_epl0v"), ExtResource("9_eluxm"), ExtResource("10_w6rmh"), ExtResource("11_cdls3")])
+water_splashes = Array[AudioStream]([ExtResource("12_g5lcg")])
+solid_splashes = Array[AudioStream]([ExtResource("13_ioni6")])
 
 [node name="fly_wind" type="AudioStreamPlayer" parent="CharacterAudio"]
-stream = ExtResource("9_n6sje")
-volume_db = -80.0
-mix_target = 2
+stream = ExtResource("9_5xvu8")
 
 [node name="ambient_wind" type="AudioStreamPlayer" parent="CharacterAudio"]
-stream = ExtResource("7_4pjxj")
+stream = ExtResource("10_gyd1x")
 volume_db = -10.0
-mix_target = 2
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="flap" from="." to="CharacterAudio" method="_on_character_controller_flap"]

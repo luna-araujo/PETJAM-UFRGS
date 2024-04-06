@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pbjmbhecmcyp"
-path.s3tc="res://.godot/imported/circle_03.png-3344e2040c0c36799f5b86a9a9198c88.s3tc.ctex"
+uid="uid://s4l0ttf8qw6j"
+path.s3tc="res://.godot/imported/pipe.jpg-15a9f7e40ebe4d09accf91c97cf7e2a1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://data/textures/kenney_particle-pack/PNG (Transparent)/circle_03.png"
-dest_files=["res://.godot/imported/circle_03.png-3344e2040c0c36799f5b86a9a9198c88.s3tc.ctex"]
+source_file="res://data/textures/pipe.jpg"
+dest_files=["res://.godot/imported/pipe.jpg-15a9f7e40ebe4d09accf91c97cf7e2a1.s3tc.ctex"]
 
 [params]
 
