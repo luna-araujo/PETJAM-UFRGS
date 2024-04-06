@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vjw5tneuoupl"]
+[gd_scene load_steps=24 format=3 uid="uid://vjw5tneuoupl"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_o5k32"]
 [ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="2_ldcnx"]
@@ -9,13 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://d3rgjer43yod0" path="res://scenes/buildings/building_3.tscn" id="10_nha1m"]
 [ext_resource type="ArrayMesh" uid="uid://bgjtl5gqy2a5b" path="res://data/models/buildings/building_3.obj" id="11_imncr"]
 [ext_resource type="PackedScene" uid="uid://37r5yb45sm30" path="res://scenes/rat_compound.tscn" id="11_xyfwy"]
-[ext_resource type="PackedScene" uid="uid://bsqjjs1m6l4rm" path="res://scenes/buildings/building_1_water.tscn" id="12_0pxf2"]
+[ext_resource type="PackedScene" uid="uid://2ksyfvqnstub" path="res://scenes/buildings/building_1_water.tscn" id="12_0pxf2"]
 [ext_resource type="ArrayMesh" uid="uid://dlgu81spgpsrl" path="res://data/models/buildings/vegetation/building_3_veg.obj" id="12_3tk8y"]
 [ext_resource type="ArrayMesh" uid="uid://cmgxkx0ixjmae" path="res://data/models/buildings/vegetation/building_2_veg_2.obj" id="13_1ighw"]
 [ext_resource type="PackedScene" uid="uid://iy7hyij7i7he" path="res://scenes/buildings/walkway.tscn" id="14_0cs1r"]
 [ext_resource type="ArrayMesh" uid="uid://dae13nb62q7nm" path="res://data/models/buildings/vegetation/walkway_veg_1.obj" id="15_cu8q3"]
 [ext_resource type="ArrayMesh" uid="uid://ccrm2jgoscbet" path="res://data/models/buildings/vegetation/building_1_veg_3.obj" id="15_my1n3"]
 [ext_resource type="PackedScene" uid="uid://bl1i5sdlyg2ap" path="res://scenes/character_controller.tscn" id="16_18m0b"]
+[ext_resource type="PackedScene" uid="uid://dddhh8w5r62by" path="res://scenes/pipes/pipe_1.tscn" id="16_hbg04"]
+[ext_resource type="PackedScene" uid="uid://bjl2u4ufetl36" path="res://scenes/pipes/pipe_3.tscn" id="17_3xee1"]
+[ext_resource type="PackedScene" uid="uid://b2frcc4bw4mt8" path="res://scenes/pipes/pipe_4.tscn" id="18_qqwxm"]
+[ext_resource type="PackedScene" uid="uid://bs37oh2sx0fh4" path="res://scenes/pipes/pipe_2.tscn" id="19_bkirt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oxgb5"]
 
@@ -52,7 +56,6 @@ shadow_enabled = true
 [node name="env" type="Node" parent="."]
 
 [node name="DeepOcean" parent="env" instance=ExtResource("2_ldcnx")]
-far_edge = 4000
 
 [node name="challange1" type="Node" parent="env"]
 
@@ -285,6 +288,27 @@ size = Vector3(41.1602, 201.409, 42.4951)
 [node name="Building5" parent="env/centralChallange" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.394, 0.48938, 290.887)
 vegetation_mesh = ExtResource("13_1ighw")
+
+[node name="Pipe3" parent="env/centralChallange" instance=ExtResource("17_3xee1")]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, -163.116, -1.92433, 334.886)
+
+[node name="Pipe4" parent="env/centralChallange" instance=ExtResource("17_3xee1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139, 94, 362)
+
+[node name="Pipe1" parent="env/centralChallange" instance=ExtResource("16_hbg04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.491, 85.7698, 366.391)
+
+[node name="Pipe2" parent="env/centralChallange" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -128.635, 6.52534, 335)
+
+[node name="Pipe2" parent="env/centralChallange/Pipe2" instance=ExtResource("19_bkirt")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, -1.64203e-15, -0.00994873, 23.1029, 23.6137)
+
+[node name="Pipe4" parent="env/centralChallange/Pipe2" instance=ExtResource("18_qqwxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000579834, -0.0184832, 23.7296)
+
+[node name="Pipe1" parent="env/centralChallange/Pipe2" instance=ExtResource("16_hbg04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110955, -18.1306)
 
 [node name="character_controller" parent="." instance=ExtResource("16_18m0b")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 67.199, 72.8241, -2.8168)
