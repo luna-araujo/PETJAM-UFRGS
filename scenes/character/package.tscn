@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgxvcrcpag5gm"]
+[gd_scene load_steps=4 format=3 uid="uid://c7fkavhl4g2r5"]
 
 [ext_resource type="Script" path="res://src/package.gd" id="1_f3rjl"]
 [ext_resource type="PackedScene" uid="uid://b8medpmjjvfjn" path="res://data/models/pidgeon/package.glb" id="2_0xals"]
@@ -6,7 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_oeq2c"]
 radius = 0.97206
 
-[node name="Package" type="Node3D"]
+[node name="Package" type="Node3D" groups=["package"]]
 script = ExtResource("1_f3rjl")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

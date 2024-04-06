@@ -21,4 +21,11 @@ func _on_area_3d_body_entered(body):
 			complete_task = true
 			task_completed.emit()
 			sign.update_text(complete_text)
+			($bonfire/SmokeParticles as GPUParticles3D).emitting = false;
+		else:
+			for package in get_tree().get_nodes_in_group("package"):
+				if(package.package_number == compound_number):
+					print(package.global_position);
+					var package_direction = ((package as Node3D).global_position - global_position).normalized();
+					DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.75, 0.0), global_position + Vector3(0.0, 2.75, 0.0) + package_direction * 3, Color("#ff0066"), 1.0,true,10.0);
 

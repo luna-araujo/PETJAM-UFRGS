@@ -37,6 +37,7 @@ var jolt_cooldown = 1.0;
 var last_velocity: Vector3 = Vector3.ZERO;
 
 var held_package:int = 0
+var target_compond;
 
 @onready var collisionShape = $CollisionShape3D;
 @onready var anim_tree: AnimationTree = $pidgeon/AnimationTree;
@@ -199,7 +200,10 @@ func _process(delta):
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + velocity * 0.35, Color("#ff0066"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_body_cur, Color("#ff0066"));
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_front, Color("#6600FF"));
-	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + up.normalized(), Color("#00FF66"));
+	if(held_package != 0):
+		var package_direction = (target_compond - global_position).normalized();
+		DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + package_direction, Color("#00FF66"));
+		
 	
 	velocity += cur_force;
 	cur_force *= damp_amt;
@@ -265,9 +269,12 @@ func _on_died(last_grounded: Vector3):
 	position = last_grounded;
 
 func set_held_package(package_number):
-	held_package = package_number
+	held_package = package_number;
 	if held_package == 0:
-		player_body.set_package_visibility(false)
+		player_body.set_package_visibility(false);
 	else:
-		player_body.set_package_visibility(true)
+		for compond in get_tree().get_nodes_in_group("Compound"):
+			if(compond.compound_number == package_number):
+				target_compond = compond.global_position;
+		player_body.set_package_visibility(true);
 
