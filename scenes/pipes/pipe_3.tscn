@@ -9,6 +9,7 @@ data = PackedVector3Array(0.7071, -1.5887, 2.725, 0.5449, -1.5694, 2.8299, 0.707
 [node name="Pipe3" type="Node3D" groups=["building"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 material_override = ExtResource("1_d7ol5")
 mesh = ExtResource("2_xqbgj")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bi2uqwfymrjrw"]
+[gd_scene load_steps=24 format=3 uid="uid://bi2uqwfymrjrw"]
 
 [ext_resource type="Script" path="res://src/randomize_buildings.gd" id="1_oucvp"]
 [ext_resource type="PackedScene" uid="uid://bh3n2t2wlanhj" path="res://scenes/buildings/building_1.tscn" id="2_1ailv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://iy7hyij7i7he" path="res://scenes/buildings/walkway.tscn" id="13_4u8ia"]
 [ext_resource type="ArrayMesh" uid="uid://dae13nb62q7nm" path="res://data/models/buildings/vegetation/walkway_veg_1.obj" id="14_nh5ap"]
 [ext_resource type="PackedScene" uid="uid://2ksyfvqnstub" path="res://scenes/buildings/building_1_water.tscn" id="17_c2m3q"]
+[ext_resource type="PackedScene" uid="uid://dddhh8w5r62by" path="res://scenes/pipes/pipe_1.tscn" id="17_t4mcv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbt11"]
 sky_top_color = Color(0.25098, 0.466667, 0.654902, 1)
@@ -146,6 +147,9 @@ vegetation_mesh = ExtResource("14_nh5ap")
 
 [node name="building1_water" parent="env" instance=ExtResource("17_c2m3q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7161, 2.80526, 23.0672)
+
+[node name="Pipe1" parent="env" instance=ExtResource("17_t4mcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6.36355, -86)
 
 [node name="character_controller" parent="." instance=ExtResource("5_xo5kh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.8414, 60.0235, -3.26938)
