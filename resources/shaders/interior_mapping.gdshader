@@ -5,6 +5,7 @@ uniform float room_seed :hint_range(0.0, 999.0, 1.0) = 0.0;
 uniform vec2 atlas_rooms = vec2(1, 1);
 uniform float depth : hint_range(0.0, 1.0) = 0.5;
 uniform sampler2D room_texture : source_color,filter_linear_mipmap;
+uniform float brightness : hint_range(0.0, 3.0) = 1;
 
 varying vec3 tangent_view_dir;
 
@@ -65,7 +66,7 @@ void fragment () {
 
 	// sample room atlas texture
 	vec2 uv = (room_index_uv + interior_uv) / atlas_rooms;
-	vec3 room = texture(room_texture, uv).rgb;
+	vec3 room = texture(room_texture, uv).rgb * brightness;
 
 	// final result
 	ALBEDO = room;
