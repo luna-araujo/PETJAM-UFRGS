@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dyj4am4irxmrn"
+path="res://.godot/imported/bridge.obj-631431ebc64f6fc0a2e1b8239fe92604.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bridge.obj-631431ebc64f6fc0a2e1b8239fe92604.mesh"]
+
+source_file="res://data/models/buildings/bridge.obj"
+dest_files=["res://.godot/imported/bridge.obj-631431ebc64f6fc0a2e1b8239fe92604.mesh", "res://.godot/imported/bridge.obj-631431ebc64f6fc0a2e1b8239fe92604.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
