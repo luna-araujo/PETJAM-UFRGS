@@ -269,6 +269,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 237.41
 
 [node name="challange2" type="Node" parent="env"]
 
+[node name="Building4" parent="env/challange2" instance=ExtResource("5_5hplb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -456.584, -142.308, 160.489)
+vegetation_mesh = ExtResource("8_bjufm")
+
 [node name="Building3" parent="env/challange2" instance=ExtResource("5_5hplb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.292, -71.1538, 80.2447)
 vegetation_mesh = ExtResource("8_bjufm")
