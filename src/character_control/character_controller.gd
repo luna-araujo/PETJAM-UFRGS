@@ -11,7 +11,7 @@ const WORLD_UP = Vector3(0.0,1.0,0.0);
 @export var MAX_VELOCITY = 100.0;
 @export var STAMINA_PASSIVE_DEP = -5.0;
 @export var STAMINA_JOLT_DEP = 33.3;
-@export var DRAG_COEF = 2.0;
+@export var DRAG_COEF = 0.02;
 @export var WEIGHT = 0.5;
 
 var yaw = 0.0;
@@ -138,7 +138,7 @@ func process_flying(delta):
 			cur_force += (direction * 0.5 + Vector3(0.0,1.0,0.0)).normalized() * JOLT_FORCE; 
 	velocity.y += -gravity * delta;
 
-	var acc = (velocity.length() * player_front - velocity) * inertia * delta;
+	var acc = (velocity.length() * player_front - velocity) * clamp(inertia * delta, 0.0, 1.0);
 	velocity += acc; 
 
 	#DebugDraw3D.draw_arrow(global_position + Vector3(0.0, 2.25, 0.0), global_position + Vector3(0.0, 2.25, 0.0) + player_front, Color("#ff6600"));
@@ -165,7 +165,8 @@ func process_flying(delta):
 	
 	#print_debug(toHor, " ", toVer);
 	#inertia = move_toward(inertia, 0.0, DRAG_COEF * delta)	
-	velocity *= 1.0 - 1.0 / (DRAG_COEF * 1000);
+	var true_coef = 1.0 / (DRAG_COEF * 1000);
+	velocity = velocity - velocity * true_coef * delta;
 	if(velocity.length() > MAX_VELOCITY):
 		velocity = velocity.normalized() * MAX_VELOCITY;
 
